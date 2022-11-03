@@ -1,0 +1,62 @@
+2022-11-03 23:02:54.813  INFO 7516 --- [main] kg.ssb.sewing.SewingApplication          : Starting SewingApplication using Java 11.0.11 on DESKTOP-DQP0OJK with PID 7516 (D:\JavaProjects2022\sewing\target\classes started by Workstation in D:\JavaProjects2022\sewing)
+2022-11-03 23:02:54.815  INFO 7516 --- [main] kg.ssb.sewing.SewingApplication          : No active profile set, falling back to 1 default profile: "default"
+2022-11-03 23:02:55.223  INFO 7516 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-03 23:02:55.232  INFO 7516 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2022-11-03 23:02:57.229  INFO 7516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-03 23:02:57.230  INFO 7516 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.33] using APR version [1.7.0].
+2022-11-03 23:02:57.230  INFO 7516 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-11-03 23:02:57.230  INFO 7516 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-11-03 23:02:57.233  INFO 7516 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1o  3 May 2022]
+2022-11-03 23:02:57.240  INFO 7516 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-03 23:02:57.240  INFO 7516 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-03 23:02:57.330  INFO 7516 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-11-03 23:02:57.330  INFO 7516 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2475 ms
+2022-11-03 23:02:57.454  INFO 7516 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-03 23:02:57.482  INFO 7516 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-11-03 23:02:57.565  INFO 7516 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-03 23:02:57.624  INFO 7516 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-11-03 23:02:58.023  INFO 7516 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-11-03 23:02:58.033  INFO 7516 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-11-03 23:02:58.203  INFO 7516 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-03 23:02:58.208  INFO 7516 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-03 23:02:58.235  WARN 7516 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-11-03 23:02:58.432  WARN 7516 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 52f9ebc9-e3a1-481b-90c7-2f1966a5781b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-11-03 23:02:58.500  INFO 7516 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3a751535, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7fb82f73, org.springframework.security.web.context.SecurityContextPersistenceFilter@733fa95c, org.springframework.security.web.header.HeaderWriterFilter@67e4928c, org.springframework.security.web.csrf.CsrfFilter@5e2975ca, org.springframework.security.web.authentication.logout.LogoutFilter@45b27ad3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1d1b3620, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7227926b, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@2f166d61, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5d0e703a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@688d619c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@647ff23e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5896b9f5, org.springframework.security.web.session.SessionManagementFilter@72e75786, org.springframework.security.web.access.ExceptionTranslationFilter@6acb45c1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@145fe8ab]
+2022-11-03 23:02:58.538  INFO 7516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-03 23:02:58.547  INFO 7516 --- [main] kg.ssb.sewing.SewingApplication          : Started SewingApplication in 4.009 seconds (JVM running for 4.596)
+2022-11-03 23:37:18.369  INFO 7516 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-03 23:37:18.371  INFO 7516 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-11-03 23:37:18.376  INFO 7516 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-11-03 23:42:25.818  INFO 12892 --- [main] kg.ssb.sewing.SewingApplication          : Starting SewingApplication using Java 11.0.11 on DESKTOP-DQP0OJK with PID 12892 (D:\JavaProjects2022\sewing\target\classes started by Workstation in D:\JavaProjects2022\sewing)
+2022-11-03 23:42:25.820  INFO 12892 --- [main] kg.ssb.sewing.SewingApplication          : No active profile set, falling back to 1 default profile: "default"
+2022-11-03 23:42:26.387  INFO 12892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-03 23:42:26.423  INFO 12892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31 ms. Found 1 JPA repository interfaces.
+2022-11-03 23:42:26.845  INFO 12892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-03 23:42:26.846  INFO 12892 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.33] using APR version [1.7.0].
+2022-11-03 23:42:26.846  INFO 12892 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-11-03 23:42:26.846  INFO 12892 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-11-03 23:42:26.848  INFO 12892 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1o  3 May 2022]
+2022-11-03 23:42:26.853  INFO 12892 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-03 23:42:26.853  INFO 12892 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-03 23:42:26.929  INFO 12892 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-11-03 23:42:26.930  INFO 12892 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1071 ms
+2022-11-03 23:42:27.072  INFO 12892 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-03 23:42:27.099  INFO 12892 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-11-03 23:42:27.184  INFO 12892 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-03 23:42:27.240  INFO 12892 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-11-03 23:42:27.623  INFO 12892 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-11-03 23:42:27.632  INFO 12892 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-11-03 23:42:28.356  INFO 12892 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-03 23:42:28.363  INFO 12892 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-03 23:42:28.636  WARN 12892 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-11-03 23:42:29.215  INFO 12892 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@136690b1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@39007725, org.springframework.security.web.context.SecurityContextPersistenceFilter@4aadf144, org.springframework.security.web.header.HeaderWriterFilter@2809e38a, org.springframework.web.filter.CorsFilter@3eb8057c, org.springframework.security.web.authentication.logout.LogoutFilter@1a48a582, kg.ssb.sewing.security.JWTAuthenticationFilter@6f695077, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@63053b71, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@257708e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@be186df, org.springframework.security.web.session.SessionManagementFilter@2cd31214, org.springframework.security.web.access.ExceptionTranslationFilter@79454d8e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7d12fb85]
+2022-11-03 23:42:29.577  INFO 12892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-03 23:42:29.584  INFO 12892 --- [main] kg.ssb.sewing.SewingApplication          : Started SewingApplication in 4.029 seconds (JVM running for 4.552)
+2022-11-03 23:43:10.317  INFO 12892 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-03 23:43:10.319  INFO 12892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-11-03 23:43:10.329  INFO 12892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
