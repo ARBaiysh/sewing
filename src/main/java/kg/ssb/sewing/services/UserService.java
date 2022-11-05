@@ -36,6 +36,7 @@ public class UserService {
             user.setFullName(userIn.getFullName());
             user.setUuid(userIn.getUuid());
             user.setPosition(userIn.getPosition());
+            user.setPositionUuid(userIn.getPositionUuid());
             user.setDivision(userIn.getDivision());
             user.setDivisionUuid(userIn.getDivisionUuid());
 
@@ -72,7 +73,7 @@ public class UserService {
         return userRepository.findById(Long.parseLong(id)).orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
-    @Scheduled(initialDelayString = "10000000", fixedDelayString = "600000000")
+    @Scheduled(initialDelayString = "1000", fixedDelayString = "600000000")
     private void installUsersFor1c() throws URISyntaxException {
         restClientUsers.findUserAll().forEach(this::createUser);
     }

@@ -14,7 +14,7 @@ public class UserFacade {
                 user.getPosition(),
                 user.getPositionUuid(),
                 user.getDivision(),
-                user.getPositionUuid(),
+                user.getDivisionUuid(),
                 user.getRoles().iterator().next());
     }
 }

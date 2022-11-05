@@ -121165,3 +121165,549 @@ java.util.NoSuchElementException: No value present
 2022-11-05 19:01:23.412  INFO 3344 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-11-05 19:01:23.413  INFO 3344 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2022-11-05 19:01:23.414  INFO 3344 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-11-05 19:32:18.592  INFO 3344 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-05 19:32:18.594  INFO 3344 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-11-05 19:32:18.604  INFO 3344 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-11-05 19:32:45.007  INFO 4128 --- [main] kg.ssb.sewing.SewingApplication          : Starting SewingApplication using Java 11.0.11 on DESKTOP-DQP0OJK with PID 4128 (D:\JavaProjects2022\sewing\target\classes started by Workstation in D:\JavaProjects2022\sewing)
+2022-11-05 19:32:45.009  INFO 4128 --- [main] kg.ssb.sewing.SewingApplication          : No active profile set, falling back to 1 default profile: "default"
+2022-11-05 19:32:45.503  INFO 4128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-05 19:32:45.537  INFO 4128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 1 JPA repository interfaces.
+2022-11-05 19:32:45.975  INFO 4128 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-05 19:32:45.976  INFO 4128 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.33] using APR version [1.7.0].
+2022-11-05 19:32:45.976  INFO 4128 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-11-05 19:32:45.976  INFO 4128 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-11-05 19:32:45.979  INFO 4128 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1o  3 May 2022]
+2022-11-05 19:32:45.986  INFO 4128 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-05 19:32:45.986  INFO 4128 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-05 19:32:46.072  INFO 4128 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-11-05 19:32:46.072  INFO 4128 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1022 ms
+2022-11-05 19:32:46.246  INFO 4128 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-05 19:32:46.274  INFO 4128 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-11-05 19:32:46.357  INFO 4128 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-05 19:32:46.420  INFO 4128 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-11-05 19:32:46.811  INFO 4128 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-11-05 19:32:46.820  INFO 4128 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-11-05 19:32:47.447  INFO 4128 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-05 19:32:47.454  INFO 4128 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-05 19:32:47.724  WARN 4128 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-11-05 19:32:48.352  INFO 4128 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@42fdf45e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1828ab51, org.springframework.security.web.context.SecurityContextPersistenceFilter@65a8c306, org.springframework.security.web.header.HeaderWriterFilter@3bac86a3, org.springframework.web.filter.CorsFilter@5e7ea81b, org.springframework.security.web.authentication.logout.LogoutFilter@712594f4, kg.ssb.sewing.security.JWTAuthenticationFilter@23b087c3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@322f84fd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@47c422d3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@589a4305, org.springframework.security.web.session.SessionManagementFilter@5114c8a1, org.springframework.security.web.access.ExceptionTranslationFilter@5bed0ff4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@423d662a]
+2022-11-05 19:32:48.748  INFO 4128 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-05 19:32:48.756  INFO 4128 --- [main] kg.ssb.sewing.SewingApplication          : Started SewingApplication in 4.014 seconds (JVM running for 4.524)
+2022-11-05 19:32:50.376  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 700420
+2022-11-05 19:32:50.619  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 701299
+2022-11-05 19:32:50.820  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400685
+2022-11-05 19:32:51.018  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 99
+2022-11-05 19:32:51.218  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 100305
+2022-11-05 19:32:51.421  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 501537
+2022-11-05 19:32:51.619  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 100755
+2022-11-05 19:32:51.819  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400771
+2022-11-05 19:32:52.021  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 001061
+2022-11-05 19:32:52.221  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 501555
+2022-11-05 19:32:52.353 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:32:52.444  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 450377
+2022-11-05 19:32:52.643  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 700998
+2022-11-05 19:32:52.844  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400697
+2022-11-05 19:32:53.040  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400753
+2022-11-05 19:32:53.239  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 300720
+2022-11-05 19:32:53.439  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 000291
+2022-11-05 19:32:53.643  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 900896
+2022-11-05 19:32:53.840  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 600889
+2022-11-05 19:32:54.295  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400233
+2022-11-05 19:32:54.494  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 000745
+2022-11-05 19:32:54.695  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 801051
+2022-11-05 19:32:54.893  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 600753
+2022-11-05 19:32:55.092  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 300519
+2022-11-05 19:32:55.292  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 601160
+2022-11-05 19:32:55.491  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 800828
+2022-11-05 19:32:55.689  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400880
+2022-11-05 19:32:55.889  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 800753
+2022-11-05 19:32:56.088  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 350172
+2022-11-05 19:32:56.287  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 501126
+2022-11-05 19:32:56.485  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 101054
+2022-11-05 19:32:56.684  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 200882
+2022-11-05 19:32:56.880  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 100777
+2022-11-05 19:32:57.082  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 450093
+2022-11-05 19:32:57.280  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 350009
+2022-11-05 19:32:57.478  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 601058
+2022-11-05 19:32:57.677  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 300367
+2022-11-05 19:32:57.875  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 300530
+2022-11-05 19:32:58.072  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 801055
+2022-11-05 19:32:58.271  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400286
+2022-11-05 19:32:58.475  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 000755
+2022-11-05 19:32:58.673  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 100875
+2022-11-05 19:32:58.871  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 501624
+2022-11-05 19:32:59.069  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 201577
+2022-11-05 19:32:59.268  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 600827
+2022-11-05 19:32:59.465  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 300130
+2022-11-05 19:32:59.662  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 800343
+2022-11-05 19:32:59.858  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 500930
+2022-11-05 19:33:00.056  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 100915
+2022-11-05 19:33:00.254  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400943
+2022-11-05 19:33:00.452  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 450271
+2022-11-05 19:33:00.649  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 200384
+2022-11-05 19:33:00.846  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 500769
+2022-11-05 19:33:01.043  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 500141
+2022-11-05 19:33:01.241  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 550385
+2022-11-05 19:33:01.436  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400442
+2022-11-05 19:33:01.632  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 350283
+2022-11-05 19:33:01.829  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400650
+2022-11-05 19:33:02.029  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 250010
+2022-11-05 19:33:02.226  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400101
+2022-11-05 19:33:02.422  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400717
+2022-11-05 19:33:02.620  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400937
+2022-11-05 19:33:02.817  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 100326
+2022-11-05 19:33:03.015  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 600721
+2022-11-05 19:33:03.211  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 600963
+2022-11-05 19:33:03.409  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 000463
+2022-11-05 19:33:03.604  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 500663
+2022-11-05 19:33:03.733 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:03.824  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 500097
+2022-11-05 19:33:03.952 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:04.042  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 601645
+2022-11-05 19:33:04.241  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 600520
+2022-11-05 19:33:04.439  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 601226
+2022-11-05 19:33:04.637  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 601536
+2022-11-05 19:33:04.833  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 300164
+2022-11-05 19:33:05.031  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 800664
+2022-11-05 19:33:05.226  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 150073
+2022-11-05 19:33:05.425  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 900728
+2022-11-05 19:33:05.554 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:05.646  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 300087
+2022-11-05 19:33:05.871  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 201724
+2022-11-05 19:33:06.070  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 000033
+2022-11-05 19:33:06.278  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 102047
+2022-11-05 19:33:06.482  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 001214
+2022-11-05 19:33:06.611 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:06.702  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 650130
+2022-11-05 19:33:06.900  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400946
+2022-11-05 19:33:07.097  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400890
+2022-11-05 19:33:07.295  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 601232
+2022-11-05 19:33:07.492  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 501350
+2022-11-05 19:33:07.689  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 401108
+2022-11-05 19:33:07.886  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 101934
+2022-11-05 19:33:08.083  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 701103
+2022-11-05 19:33:08.280  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 500855
+2022-11-05 19:33:08.476  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400418
+2022-11-05 19:33:08.674  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 550486
+2022-11-05 19:33:08.871  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 200780
+2022-11-05 19:33:09.067  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 200028
+2022-11-05 19:33:09.265  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 100749
+2022-11-05 19:33:09.464  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 300943
+2022-11-05 19:33:09.660  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 700737
+2022-11-05 19:33:09.860  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 300266
+2022-11-05 19:33:09.988 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:10.077  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400439
+2022-11-05 19:33:10.279  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 501092
+2022-11-05 19:33:10.479  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 700490
+2022-11-05 19:33:10.679  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 450299
+2022-11-05 19:33:10.879  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 501023
+2022-11-05 19:33:11.077  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400993
+2022-11-05 19:33:11.274  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 601042
+2022-11-05 19:33:11.472  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 700849
+2022-11-05 19:33:11.599 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:11.690  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 800150
+2022-11-05 19:33:11.886  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 001526
+2022-11-05 19:33:12.015 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:12.106  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 701147
+2022-11-05 19:33:12.301  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 200043
+2022-11-05 19:33:12.496  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 900892
+2022-11-05 19:33:12.692  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 300560
+2022-11-05 19:33:12.889  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 100067
+2022-11-05 19:33:13.017 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:13.108  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400726
+2022-11-05 19:33:13.304  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 500403
+2022-11-05 19:33:13.503  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 200011
+2022-11-05 19:33:13.698  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 900215
+2022-11-05 19:33:13.896  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 900920
+2022-11-05 19:33:14.092  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 601475
+2022-11-05 19:33:14.221 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:14.311  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 250229
+2022-11-05 19:33:14.509  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 300062
+2022-11-05 19:33:14.706  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 200488
+2022-11-05 19:33:14.902  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 700133
+2022-11-05 19:33:15.098  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 200431
+2022-11-05 19:33:15.296  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 900940
+2022-11-05 19:33:15.494  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 001131
+2022-11-05 19:33:15.692  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 101219
+2022-11-05 19:33:15.821 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:15.912  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 201844
+2022-11-05 19:33:16.110  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 000486
+2022-11-05 19:33:16.305  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 601244
+2022-11-05 19:33:16.500  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 300605
+2022-11-05 19:33:16.631 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:16.721  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 400797
+2022-11-05 19:33:16.918  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 900847
+2022-11-05 19:33:17.113  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 200413
+2022-11-05 19:33:17.308  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 000477
+2022-11-05 19:33:17.506  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 600618
+2022-11-05 19:33:17.635 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:17.725  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 680077
+2022-11-05 19:33:17.854 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:17.944  INFO 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : Saving User 600379
+2022-11-05 19:33:18.072 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:18.093 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:33:18.114 ERROR 4128 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:16.917  INFO 4128 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-05 19:34:16.918  INFO 4128 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-11-05 19:34:16.928  INFO 4128 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-11-05 19:34:20.032  INFO 12104 --- [main] kg.ssb.sewing.SewingApplication          : Starting SewingApplication using Java 11.0.11 on DESKTOP-DQP0OJK with PID 12104 (D:\JavaProjects2022\sewing\target\classes started by Workstation in D:\JavaProjects2022\sewing)
+2022-11-05 19:34:20.035  INFO 12104 --- [main] kg.ssb.sewing.SewingApplication          : No active profile set, falling back to 1 default profile: "default"
+2022-11-05 19:34:20.506  INFO 12104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-05 19:34:20.540  INFO 12104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 1 JPA repository interfaces.
+2022-11-05 19:34:20.974  INFO 12104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-05 19:34:20.975  INFO 12104 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.33] using APR version [1.7.0].
+2022-11-05 19:34:20.975  INFO 12104 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-11-05 19:34:20.975  INFO 12104 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-11-05 19:34:20.977  INFO 12104 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1o  3 May 2022]
+2022-11-05 19:34:20.982  INFO 12104 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-05 19:34:20.982  INFO 12104 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-05 19:34:21.059  INFO 12104 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-11-05 19:34:21.059  INFO 12104 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 984 ms
+2022-11-05 19:34:21.206  INFO 12104 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-05 19:34:21.234  INFO 12104 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-11-05 19:34:21.312  INFO 12104 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-05 19:34:21.384  INFO 12104 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-11-05 19:34:21.768  INFO 12104 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-11-05 19:34:21.777  INFO 12104 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-11-05 19:34:22.280  INFO 12104 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-05 19:34:22.285  INFO 12104 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-05 19:34:22.537  WARN 12104 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-11-05 19:34:23.128  INFO 12104 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a08d301, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63e40188, org.springframework.security.web.context.SecurityContextPersistenceFilter@4172c967, org.springframework.security.web.header.HeaderWriterFilter@5a88849, org.springframework.web.filter.CorsFilter@5b3c2a9f, org.springframework.security.web.authentication.logout.LogoutFilter@18d14de3, kg.ssb.sewing.security.JWTAuthenticationFilter@5ce41f1f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f391e52, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@629cf53c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@535b4dbf, org.springframework.security.web.session.SessionManagementFilter@47400608, org.springframework.security.web.access.ExceptionTranslationFilter@b272860, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@439d649c]
+2022-11-05 19:34:23.517  INFO 12104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-05 19:34:23.526  INFO 12104 --- [main] kg.ssb.sewing.SewingApplication          : Started SewingApplication in 3.752 seconds (JVM running for 4.264)
+2022-11-05 19:34:25.073 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 700420 already exist. Please check credentials
+2022-11-05 19:34:25.097 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 701299 already exist. Please check credentials
+2022-11-05 19:34:25.117 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400685 already exist. Please check credentials
+2022-11-05 19:34:25.139 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:25.160 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100305 already exist. Please check credentials
+2022-11-05 19:34:25.182 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501537 already exist. Please check credentials
+2022-11-05 19:34:25.204 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100755 already exist. Please check credentials
+2022-11-05 19:34:25.225 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400771 already exist. Please check credentials
+2022-11-05 19:34:25.247 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 001061 already exist. Please check credentials
+2022-11-05 19:34:25.268 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501555 already exist. Please check credentials
+2022-11-05 19:34:25.289 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:25.311 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 450377 already exist. Please check credentials
+2022-11-05 19:34:25.333 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 700998 already exist. Please check credentials
+2022-11-05 19:34:25.355 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400697 already exist. Please check credentials
+2022-11-05 19:34:25.381 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400753 already exist. Please check credentials
+2022-11-05 19:34:25.403 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300720 already exist. Please check credentials
+2022-11-05 19:34:25.424 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000291 already exist. Please check credentials
+2022-11-05 19:34:25.446 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900896 already exist. Please check credentials
+2022-11-05 19:34:25.468 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600889 already exist. Please check credentials
+2022-11-05 19:34:25.490 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400233 already exist. Please check credentials
+2022-11-05 19:34:25.511 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000745 already exist. Please check credentials
+2022-11-05 19:34:25.534 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 801051 already exist. Please check credentials
+2022-11-05 19:34:25.555 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600753 already exist. Please check credentials
+2022-11-05 19:34:25.577 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300519 already exist. Please check credentials
+2022-11-05 19:34:25.599 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601160 already exist. Please check credentials
+2022-11-05 19:34:25.622 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 800828 already exist. Please check credentials
+2022-11-05 19:34:25.643 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400880 already exist. Please check credentials
+2022-11-05 19:34:25.665 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 800753 already exist. Please check credentials
+2022-11-05 19:34:25.687 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 350172 already exist. Please check credentials
+2022-11-05 19:34:25.708 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501126 already exist. Please check credentials
+2022-11-05 19:34:25.730 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 101054 already exist. Please check credentials
+2022-11-05 19:34:25.752 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200882 already exist. Please check credentials
+2022-11-05 19:34:25.773 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100777 already exist. Please check credentials
+2022-11-05 19:34:25.795 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 450093 already exist. Please check credentials
+2022-11-05 19:34:25.817 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 350009 already exist. Please check credentials
+2022-11-05 19:34:25.838 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601058 already exist. Please check credentials
+2022-11-05 19:34:25.861 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300367 already exist. Please check credentials
+2022-11-05 19:34:25.882 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300530 already exist. Please check credentials
+2022-11-05 19:34:25.905 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 801055 already exist. Please check credentials
+2022-11-05 19:34:25.926 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400286 already exist. Please check credentials
+2022-11-05 19:34:25.948 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000755 already exist. Please check credentials
+2022-11-05 19:34:25.970 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100875 already exist. Please check credentials
+2022-11-05 19:34:25.991 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501624 already exist. Please check credentials
+2022-11-05 19:34:26.013 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 201577 already exist. Please check credentials
+2022-11-05 19:34:26.035 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600827 already exist. Please check credentials
+2022-11-05 19:34:26.056 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300130 already exist. Please check credentials
+2022-11-05 19:34:26.078 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 800343 already exist. Please check credentials
+2022-11-05 19:34:26.099 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500930 already exist. Please check credentials
+2022-11-05 19:34:26.120 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100915 already exist. Please check credentials
+2022-11-05 19:34:26.142 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400943 already exist. Please check credentials
+2022-11-05 19:34:26.163 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 450271 already exist. Please check credentials
+2022-11-05 19:34:26.184 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200384 already exist. Please check credentials
+2022-11-05 19:34:26.206 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500769 already exist. Please check credentials
+2022-11-05 19:34:26.228 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500141 already exist. Please check credentials
+2022-11-05 19:34:26.250 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 550385 already exist. Please check credentials
+2022-11-05 19:34:26.273 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400442 already exist. Please check credentials
+2022-11-05 19:34:26.294 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 350283 already exist. Please check credentials
+2022-11-05 19:34:26.315 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400650 already exist. Please check credentials
+2022-11-05 19:34:26.337 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 250010 already exist. Please check credentials
+2022-11-05 19:34:26.358 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400101 already exist. Please check credentials
+2022-11-05 19:34:26.379 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400717 already exist. Please check credentials
+2022-11-05 19:34:26.401 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400937 already exist. Please check credentials
+2022-11-05 19:34:26.422 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100326 already exist. Please check credentials
+2022-11-05 19:34:26.445 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600721 already exist. Please check credentials
+2022-11-05 19:34:26.467 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600963 already exist. Please check credentials
+2022-11-05 19:34:26.489 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000463 already exist. Please check credentials
+2022-11-05 19:34:26.510 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500663 already exist. Please check credentials
+2022-11-05 19:34:26.532 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:26.553 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500097 already exist. Please check credentials
+2022-11-05 19:34:26.575 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:26.597 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601645 already exist. Please check credentials
+2022-11-05 19:34:26.618 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600520 already exist. Please check credentials
+2022-11-05 19:34:26.639 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601226 already exist. Please check credentials
+2022-11-05 19:34:26.661 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601536 already exist. Please check credentials
+2022-11-05 19:34:26.683 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300164 already exist. Please check credentials
+2022-11-05 19:34:26.704 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 800664 already exist. Please check credentials
+2022-11-05 19:34:26.726 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 150073 already exist. Please check credentials
+2022-11-05 19:34:26.748 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900728 already exist. Please check credentials
+2022-11-05 19:34:26.769 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:26.791 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300087 already exist. Please check credentials
+2022-11-05 19:34:26.812 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 201724 already exist. Please check credentials
+2022-11-05 19:34:26.833 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000033 already exist. Please check credentials
+2022-11-05 19:34:26.855 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 102047 already exist. Please check credentials
+2022-11-05 19:34:26.876 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 001214 already exist. Please check credentials
+2022-11-05 19:34:26.898 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:26.921 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 650130 already exist. Please check credentials
+2022-11-05 19:34:26.942 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400946 already exist. Please check credentials
+2022-11-05 19:34:26.964 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400890 already exist. Please check credentials
+2022-11-05 19:34:26.985 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601232 already exist. Please check credentials
+2022-11-05 19:34:27.006 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501350 already exist. Please check credentials
+2022-11-05 19:34:27.028 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 401108 already exist. Please check credentials
+2022-11-05 19:34:27.049 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 101934 already exist. Please check credentials
+2022-11-05 19:34:27.071 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 701103 already exist. Please check credentials
+2022-11-05 19:34:27.092 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500855 already exist. Please check credentials
+2022-11-05 19:34:27.115 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400418 already exist. Please check credentials
+2022-11-05 19:34:27.136 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 550486 already exist. Please check credentials
+2022-11-05 19:34:27.158 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200780 already exist. Please check credentials
+2022-11-05 19:34:27.179 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200028 already exist. Please check credentials
+2022-11-05 19:34:27.201 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100749 already exist. Please check credentials
+2022-11-05 19:34:27.222 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300943 already exist. Please check credentials
+2022-11-05 19:34:27.244 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 700737 already exist. Please check credentials
+2022-11-05 19:34:27.266 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300266 already exist. Please check credentials
+2022-11-05 19:34:27.288 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:27.309 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400439 already exist. Please check credentials
+2022-11-05 19:34:27.331 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501092 already exist. Please check credentials
+2022-11-05 19:34:27.352 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 700490 already exist. Please check credentials
+2022-11-05 19:34:27.374 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 450299 already exist. Please check credentials
+2022-11-05 19:34:27.395 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501023 already exist. Please check credentials
+2022-11-05 19:34:27.416 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400993 already exist. Please check credentials
+2022-11-05 19:34:27.438 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601042 already exist. Please check credentials
+2022-11-05 19:34:27.459 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 700849 already exist. Please check credentials
+2022-11-05 19:34:27.481 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:27.503 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 800150 already exist. Please check credentials
+2022-11-05 19:34:27.524 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 001526 already exist. Please check credentials
+2022-11-05 19:34:27.546 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:27.568 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 701147 already exist. Please check credentials
+2022-11-05 19:34:27.589 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200043 already exist. Please check credentials
+2022-11-05 19:34:27.611 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900892 already exist. Please check credentials
+2022-11-05 19:34:27.633 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300560 already exist. Please check credentials
+2022-11-05 19:34:27.655 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100067 already exist. Please check credentials
+2022-11-05 19:34:27.676 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:27.698 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400726 already exist. Please check credentials
+2022-11-05 19:34:27.720 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500403 already exist. Please check credentials
+2022-11-05 19:34:27.742 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200011 already exist. Please check credentials
+2022-11-05 19:34:27.763 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900215 already exist. Please check credentials
+2022-11-05 19:34:27.785 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900920 already exist. Please check credentials
+2022-11-05 19:34:27.806 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601475 already exist. Please check credentials
+2022-11-05 19:34:27.828 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:27.850 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 250229 already exist. Please check credentials
+2022-11-05 19:34:27.871 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300062 already exist. Please check credentials
+2022-11-05 19:34:27.892 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200488 already exist. Please check credentials
+2022-11-05 19:34:27.913 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 700133 already exist. Please check credentials
+2022-11-05 19:34:27.935 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200431 already exist. Please check credentials
+2022-11-05 19:34:27.957 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900940 already exist. Please check credentials
+2022-11-05 19:34:27.978 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 001131 already exist. Please check credentials
+2022-11-05 19:34:27.999 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 101219 already exist. Please check credentials
+2022-11-05 19:34:28.021 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:28.042 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 201844 already exist. Please check credentials
+2022-11-05 19:34:28.064 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000486 already exist. Please check credentials
+2022-11-05 19:34:28.085 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601244 already exist. Please check credentials
+2022-11-05 19:34:28.106 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300605 already exist. Please check credentials
+2022-11-05 19:34:28.128 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:28.149 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400797 already exist. Please check credentials
+2022-11-05 19:34:28.171 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900847 already exist. Please check credentials
+2022-11-05 19:34:28.192 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200413 already exist. Please check credentials
+2022-11-05 19:34:28.213 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000477 already exist. Please check credentials
+2022-11-05 19:34:28.235 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600618 already exist. Please check credentials
+2022-11-05 19:34:28.257 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:28.279 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 680077 already exist. Please check credentials
+2022-11-05 19:34:28.300 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:28.321 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600379 already exist. Please check credentials
+2022-11-05 19:34:28.343 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:28.365 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:34:28.386 ERROR 12104 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:38:58.337  INFO 12104 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-05 19:38:58.339  INFO 12104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-11-05 19:38:58.349  INFO 12104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-11-05 19:39:00.530  INFO 1940 --- [main] kg.ssb.sewing.SewingApplication          : Starting SewingApplication using Java 11.0.11 on DESKTOP-DQP0OJK with PID 1940 (D:\JavaProjects2022\sewing\target\classes started by Workstation in D:\JavaProjects2022\sewing)
+2022-11-05 19:39:00.532  INFO 1940 --- [main] kg.ssb.sewing.SewingApplication          : No active profile set, falling back to 1 default profile: "default"
+2022-11-05 19:39:01.012  INFO 1940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-05 19:39:01.050  INFO 1940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 1 JPA repository interfaces.
+2022-11-05 19:39:01.492  INFO 1940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-05 19:39:01.493  INFO 1940 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.33] using APR version [1.7.0].
+2022-11-05 19:39:01.493  INFO 1940 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+2022-11-05 19:39:01.493  INFO 1940 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2022-11-05 19:39:01.495  INFO 1940 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1o  3 May 2022]
+2022-11-05 19:39:01.501  INFO 1940 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-05 19:39:01.501  INFO 1940 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-05 19:39:01.580  INFO 1940 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-11-05 19:39:01.581  INFO 1940 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1008 ms
+2022-11-05 19:39:01.732  INFO 1940 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-05 19:39:01.759  INFO 1940 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2022-11-05 19:39:01.839  INFO 1940 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-05 19:39:01.903  INFO 1940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-11-05 19:39:02.291  INFO 1940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-11-05 19:39:02.301  INFO 1940 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-11-05 19:39:02.801  INFO 1940 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-05 19:39:02.807  INFO 1940 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-05 19:39:03.089  WARN 1940 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-11-05 19:39:03.720  INFO 1940 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6b64921f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@439d649c, org.springframework.security.web.context.SecurityContextPersistenceFilter@7f6a6d46, org.springframework.security.web.header.HeaderWriterFilter@7d108063, org.springframework.web.filter.CorsFilter@6e475994, org.springframework.security.web.authentication.logout.LogoutFilter@5e8e02a3, kg.ssb.sewing.security.JWTAuthenticationFilter@44e0c3d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6bec566e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@71ac5723, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@55a2f08b, org.springframework.security.web.session.SessionManagementFilter@c19bb2a, org.springframework.security.web.access.ExceptionTranslationFilter@3c468360, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3a720ae3]
+2022-11-05 19:39:04.081  INFO 1940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-05 19:39:04.089  INFO 1940 --- [main] kg.ssb.sewing.SewingApplication          : Started SewingApplication in 3.817 seconds (JVM running for 4.346)
+2022-11-05 19:39:05.658 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 700420 already exist. Please check credentials
+2022-11-05 19:39:05.681 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 701299 already exist. Please check credentials
+2022-11-05 19:39:05.702 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400685 already exist. Please check credentials
+2022-11-05 19:39:05.724 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:05.746 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100305 already exist. Please check credentials
+2022-11-05 19:39:05.767 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501537 already exist. Please check credentials
+2022-11-05 19:39:05.790 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100755 already exist. Please check credentials
+2022-11-05 19:39:05.811 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400771 already exist. Please check credentials
+2022-11-05 19:39:05.833 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 001061 already exist. Please check credentials
+2022-11-05 19:39:05.854 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501555 already exist. Please check credentials
+2022-11-05 19:39:05.876 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:05.899 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 450377 already exist. Please check credentials
+2022-11-05 19:39:05.921 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 700998 already exist. Please check credentials
+2022-11-05 19:39:05.943 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400697 already exist. Please check credentials
+2022-11-05 19:39:05.965 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400753 already exist. Please check credentials
+2022-11-05 19:39:05.987 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300720 already exist. Please check credentials
+2022-11-05 19:39:06.009 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000291 already exist. Please check credentials
+2022-11-05 19:39:06.031 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900896 already exist. Please check credentials
+2022-11-05 19:39:06.053 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600889 already exist. Please check credentials
+2022-11-05 19:39:06.075 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400233 already exist. Please check credentials
+2022-11-05 19:39:06.096 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000745 already exist. Please check credentials
+2022-11-05 19:39:06.118 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 801051 already exist. Please check credentials
+2022-11-05 19:39:06.140 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600753 already exist. Please check credentials
+2022-11-05 19:39:06.162 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300519 already exist. Please check credentials
+2022-11-05 19:39:06.184 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601160 already exist. Please check credentials
+2022-11-05 19:39:06.206 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 800828 already exist. Please check credentials
+2022-11-05 19:39:06.227 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400880 already exist. Please check credentials
+2022-11-05 19:39:06.248 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 800753 already exist. Please check credentials
+2022-11-05 19:39:06.270 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 350172 already exist. Please check credentials
+2022-11-05 19:39:06.291 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501126 already exist. Please check credentials
+2022-11-05 19:39:06.313 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 101054 already exist. Please check credentials
+2022-11-05 19:39:06.335 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200882 already exist. Please check credentials
+2022-11-05 19:39:06.358 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100777 already exist. Please check credentials
+2022-11-05 19:39:06.379 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 450093 already exist. Please check credentials
+2022-11-05 19:39:06.401 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 350009 already exist. Please check credentials
+2022-11-05 19:39:06.424 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601058 already exist. Please check credentials
+2022-11-05 19:39:06.445 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300367 already exist. Please check credentials
+2022-11-05 19:39:06.467 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300530 already exist. Please check credentials
+2022-11-05 19:39:06.488 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 801055 already exist. Please check credentials
+2022-11-05 19:39:06.510 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400286 already exist. Please check credentials
+2022-11-05 19:39:06.531 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000755 already exist. Please check credentials
+2022-11-05 19:39:06.552 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100875 already exist. Please check credentials
+2022-11-05 19:39:06.574 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501624 already exist. Please check credentials
+2022-11-05 19:39:06.596 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 201577 already exist. Please check credentials
+2022-11-05 19:39:06.618 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600827 already exist. Please check credentials
+2022-11-05 19:39:06.639 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300130 already exist. Please check credentials
+2022-11-05 19:39:06.661 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 800343 already exist. Please check credentials
+2022-11-05 19:39:06.683 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500930 already exist. Please check credentials
+2022-11-05 19:39:06.705 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100915 already exist. Please check credentials
+2022-11-05 19:39:06.726 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400943 already exist. Please check credentials
+2022-11-05 19:39:06.748 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 450271 already exist. Please check credentials
+2022-11-05 19:39:06.769 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200384 already exist. Please check credentials
+2022-11-05 19:39:06.791 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500769 already exist. Please check credentials
+2022-11-05 19:39:06.813 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500141 already exist. Please check credentials
+2022-11-05 19:39:06.835 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 550385 already exist. Please check credentials
+2022-11-05 19:39:06.857 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400442 already exist. Please check credentials
+2022-11-05 19:39:06.878 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 350283 already exist. Please check credentials
+2022-11-05 19:39:06.899 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400650 already exist. Please check credentials
+2022-11-05 19:39:06.921 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 250010 already exist. Please check credentials
+2022-11-05 19:39:06.942 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400101 already exist. Please check credentials
+2022-11-05 19:39:06.963 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400717 already exist. Please check credentials
+2022-11-05 19:39:06.986 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400937 already exist. Please check credentials
+2022-11-05 19:39:07.008 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100326 already exist. Please check credentials
+2022-11-05 19:39:07.029 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600721 already exist. Please check credentials
+2022-11-05 19:39:07.051 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600963 already exist. Please check credentials
+2022-11-05 19:39:07.072 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000463 already exist. Please check credentials
+2022-11-05 19:39:07.094 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500663 already exist. Please check credentials
+2022-11-05 19:39:07.114 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:07.136 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500097 already exist. Please check credentials
+2022-11-05 19:39:07.157 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:07.178 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601645 already exist. Please check credentials
+2022-11-05 19:39:07.200 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600520 already exist. Please check credentials
+2022-11-05 19:39:07.221 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601226 already exist. Please check credentials
+2022-11-05 19:39:07.243 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601536 already exist. Please check credentials
+2022-11-05 19:39:07.263 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300164 already exist. Please check credentials
+2022-11-05 19:39:07.285 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 800664 already exist. Please check credentials
+2022-11-05 19:39:07.307 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 150073 already exist. Please check credentials
+2022-11-05 19:39:07.329 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900728 already exist. Please check credentials
+2022-11-05 19:39:07.350 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:07.372 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300087 already exist. Please check credentials
+2022-11-05 19:39:07.394 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 201724 already exist. Please check credentials
+2022-11-05 19:39:07.415 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000033 already exist. Please check credentials
+2022-11-05 19:39:07.437 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 102047 already exist. Please check credentials
+2022-11-05 19:39:07.459 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 001214 already exist. Please check credentials
+2022-11-05 19:39:07.481 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:07.502 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 650130 already exist. Please check credentials
+2022-11-05 19:39:07.524 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400946 already exist. Please check credentials
+2022-11-05 19:39:07.546 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400890 already exist. Please check credentials
+2022-11-05 19:39:07.567 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601232 already exist. Please check credentials
+2022-11-05 19:39:07.589 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501350 already exist. Please check credentials
+2022-11-05 19:39:07.610 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 401108 already exist. Please check credentials
+2022-11-05 19:39:07.632 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 101934 already exist. Please check credentials
+2022-11-05 19:39:07.654 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 701103 already exist. Please check credentials
+2022-11-05 19:39:07.675 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500855 already exist. Please check credentials
+2022-11-05 19:39:07.696 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400418 already exist. Please check credentials
+2022-11-05 19:39:07.719 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 550486 already exist. Please check credentials
+2022-11-05 19:39:07.741 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200780 already exist. Please check credentials
+2022-11-05 19:39:07.762 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200028 already exist. Please check credentials
+2022-11-05 19:39:07.784 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100749 already exist. Please check credentials
+2022-11-05 19:39:07.806 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300943 already exist. Please check credentials
+2022-11-05 19:39:07.827 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 700737 already exist. Please check credentials
+2022-11-05 19:39:07.848 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300266 already exist. Please check credentials
+2022-11-05 19:39:07.870 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:07.891 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400439 already exist. Please check credentials
+2022-11-05 19:39:07.913 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501092 already exist. Please check credentials
+2022-11-05 19:39:07.935 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 700490 already exist. Please check credentials
+2022-11-05 19:39:07.956 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 450299 already exist. Please check credentials
+2022-11-05 19:39:07.978 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 501023 already exist. Please check credentials
+2022-11-05 19:39:07.999 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400993 already exist. Please check credentials
+2022-11-05 19:39:08.022 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601042 already exist. Please check credentials
+2022-11-05 19:39:08.044 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 700849 already exist. Please check credentials
+2022-11-05 19:39:08.065 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:08.087 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 800150 already exist. Please check credentials
+2022-11-05 19:39:08.108 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 001526 already exist. Please check credentials
+2022-11-05 19:39:08.129 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:08.151 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 701147 already exist. Please check credentials
+2022-11-05 19:39:08.173 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200043 already exist. Please check credentials
+2022-11-05 19:39:08.194 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900892 already exist. Please check credentials
+2022-11-05 19:39:08.216 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300560 already exist. Please check credentials
+2022-11-05 19:39:08.238 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 100067 already exist. Please check credentials
+2022-11-05 19:39:08.260 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:08.282 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400726 already exist. Please check credentials
+2022-11-05 19:39:08.303 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 500403 already exist. Please check credentials
+2022-11-05 19:39:08.325 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200011 already exist. Please check credentials
+2022-11-05 19:39:08.365 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900215 already exist. Please check credentials
+2022-11-05 19:39:08.399 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900920 already exist. Please check credentials
+2022-11-05 19:39:08.433 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601475 already exist. Please check credentials
+2022-11-05 19:39:08.455 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:08.476 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 250229 already exist. Please check credentials
+2022-11-05 19:39:08.497 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300062 already exist. Please check credentials
+2022-11-05 19:39:08.519 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200488 already exist. Please check credentials
+2022-11-05 19:39:08.541 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 700133 already exist. Please check credentials
+2022-11-05 19:39:08.562 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200431 already exist. Please check credentials
+2022-11-05 19:39:08.584 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900940 already exist. Please check credentials
+2022-11-05 19:39:08.606 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 001131 already exist. Please check credentials
+2022-11-05 19:39:08.628 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 101219 already exist. Please check credentials
+2022-11-05 19:39:08.651 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:08.673 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 201844 already exist. Please check credentials
+2022-11-05 19:39:08.694 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000486 already exist. Please check credentials
+2022-11-05 19:39:08.716 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 601244 already exist. Please check credentials
+2022-11-05 19:39:08.738 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 300605 already exist. Please check credentials
+2022-11-05 19:39:08.760 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:08.781 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 400797 already exist. Please check credentials
+2022-11-05 19:39:08.803 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 900847 already exist. Please check credentials
+2022-11-05 19:39:08.824 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 200413 already exist. Please check credentials
+2022-11-05 19:39:08.846 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 000477 already exist. Please check credentials
+2022-11-05 19:39:08.867 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600618 already exist. Please check credentials
+2022-11-05 19:39:08.889 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:08.910 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 680077 already exist. Please check credentials
+2022-11-05 19:39:08.933 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:08.955 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 600379 already exist. Please check credentials
+2022-11-05 19:39:08.978 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:09.000 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
+2022-11-05 19:39:09.023 ERROR 1940 --- [scheduling-1] kg.ssb.sewing.services.UserService       : The user 99 already exist. Please check credentials
