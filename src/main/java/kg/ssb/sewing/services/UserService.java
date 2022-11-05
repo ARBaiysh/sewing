@@ -3,7 +3,6 @@ package kg.ssb.sewing.services;
 import kg.ssb.sewing.entity.User;
 import kg.ssb.sewing.entity.enums.ERole;
 import kg.ssb.sewing.entity.enums.EStatus;
-import kg.ssb.sewing.exceptions.ObjExistException;
 import kg.ssb.sewing.payload.request.SignUpRequest;
 import kg.ssb.sewing.repository.UserRepository;
 import kg.ssb.sewing.rest.RestClientUsers;
@@ -73,8 +72,26 @@ public class UserService {
         return userRepository.findById(Long.parseLong(id)).orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
-    @Scheduled(initialDelayString = "1000", fixedDelayString = "600000000")
+    public boolean existsUserByPersonalId(String personalId){
+        return userRepository.existsUserByPersonalId(personalId);
+    }
+
+    @Scheduled(initialDelayString = "11111000", fixedDelayString = "600000000")
     private void installUsersFor1c() throws URISyntaxException {
-        restClientUsers.findUserAll().forEach(this::createUser);
+        restClientUsers.findUsersByBase1C().forEach(this::createUser);
+    }
+
+    public int existsUserBy1CBases(String username){
+        try {
+            SignUpRequest userByBase1C = restClientUsers.findUserByBase1C(username);
+            if(userByBase1C.getUuid().isEmpty()){
+                return -1;
+            }else {
+                this.createUser(userByBase1C);
+                return 0;
+            }
+        } catch (URISyntaxException e) {
+            return -1;
+        }
     }
 }

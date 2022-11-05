@@ -3,7 +3,6 @@ package kg.ssb.sewing.payload.request;
 import lombok.Data;
 
 @Data
-public class LoginRequest {
+public class SearchUserRequest {
     private String username;
-    private String password;
 }
