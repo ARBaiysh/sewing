@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.net.URISyntaxException;
 import java.security.Principal;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -26,7 +25,7 @@ public class UserService {
     private final BCryptPasswordEncoder passwordEncoder;
 
 
-    public void createUser(SignUpRequest userIn) {
+    public void createUser(SignUpRequest userIn, String password) {
         if (userRepository.existsUserByPersonalId(userIn.getPersonalId())) {
             log.error("The user " + userIn.getPersonalId() + " already exist. Please check credentials");
         } else {
@@ -40,7 +39,7 @@ public class UserService {
             user.setDivision(userIn.getDivision());
             user.setDivisionUuid(userIn.getDivisionUuid());
 
-            user.setPassword(passwordEncoder.encode("123456"));
+            user.setPassword(passwordEncoder.encode(password));
             if (userIn.getRole().equals("seamstress")) {
                 user.getRoles().add(ERole.ROLE_SEAMSTRESS);
             } else if (userIn.getRole().equals("master")) {
@@ -89,7 +88,6 @@ public class UserService {
             if (newUser.getUuid().isEmpty()) {
                 return -1;
             } else {
-                this.createUser(newUser);
                 return 0;
             }
         } catch (URISyntaxException e) {
@@ -97,9 +95,14 @@ public class UserService {
         }
     }
 
-    public void setUserPassword(LoginRequest loginRequest) {
-        User user = userRepository.findUserByPersonalId(loginRequest.getUsername()).get();
-        user.setPassword(passwordEncoder.encode(loginRequest.getPassword()));
-        userRepository.save(user);
+    public void addNewUser(LoginRequest loginRequest) {
+
+        try {
+            Iterable<SignUpRequest> userByBase1C = restClientUsers.findUserByBase1C(loginRequest.getUsername());
+            SignUpRequest newUser = userByBase1C.iterator().next();
+            this.createUser(newUser, loginRequest.getPassword());
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

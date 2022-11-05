@@ -51,7 +51,7 @@ public class AuthController {
     public ResponseEntity<?> signUpUser(@Valid @RequestBody LoginRequest loginRequest, BindingResult bindingResult) throws InterruptedException {
         ResponseEntity<?> errors = responseErrorValidation.mapValidationService(bindingResult);
         if (!ObjectUtils.isEmpty(errors)) return errors;
-        userService.setUserPassword(loginRequest);
+        userService.addNewUser(loginRequest);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
