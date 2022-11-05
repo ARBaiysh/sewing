@@ -3,18 +3,19 @@ package kg.ssb.sewing.services;
 import kg.ssb.sewing.entity.User;
 import kg.ssb.sewing.entity.enums.ERole;
 import kg.ssb.sewing.entity.enums.EStatus;
+import kg.ssb.sewing.payload.request.LoginRequest;
 import kg.ssb.sewing.payload.request.SignUpRequest;
 import kg.ssb.sewing.repository.UserRepository;
 import kg.ssb.sewing.rest.RestClientUsers;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.net.URISyntaxException;
 import java.security.Principal;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -72,26 +73,33 @@ public class UserService {
         return userRepository.findById(Long.parseLong(id)).orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
-    public boolean existsUserByPersonalId(String personalId){
+    public boolean existsUserByPersonalId(String personalId) {
         return userRepository.existsUserByPersonalId(personalId);
     }
 
-    @Scheduled(initialDelayString = "11111000", fixedDelayString = "600000000")
-    private void installUsersFor1c() throws URISyntaxException {
-        restClientUsers.findUsersByBase1C().forEach(this::createUser);
-    }
+//    @Scheduled(initialDelayString = "11111000", fixedDelayString = "600000000")
+//    private void installUsersFor1c() throws URISyntaxException {
+//        restClientUsers.findUsersByBase1C().forEach(this::createUser);
+//    }
 
-    public int existsUserBy1CBases(String username){
+    public int existsUserBy1CBases(String username) {
         try {
-            SignUpRequest userByBase1C = restClientUsers.findUserByBase1C(username);
-            if(userByBase1C.getUuid().isEmpty()){
+            Iterable<SignUpRequest> userByBase1C = restClientUsers.findUserByBase1C(username);
+            SignUpRequest newUser = userByBase1C.iterator().next();
+            if (newUser.getUuid().isEmpty()) {
                 return -1;
-            }else {
-                this.createUser(userByBase1C);
+            } else {
+                this.createUser(newUser);
                 return 0;
             }
         } catch (URISyntaxException e) {
-            return -1;
+            return 1;
         }
+    }
+
+    public void setUserPassword(LoginRequest loginRequest) {
+        User user = userRepository.findUserByPersonalId(loginRequest.getUsername()).get();
+        user.setPassword(passwordEncoder.encode(loginRequest.getPassword()));
+        userRepository.save(user);
     }
 }

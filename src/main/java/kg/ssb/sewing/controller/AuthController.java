@@ -47,6 +47,14 @@ public class AuthController {
         return ResponseEntity.ok(new JWTTokenSuccessResponse(userService.getUserPasswordUnDefault(loginRequest.getUsername()), jwt));
     }
 
+    @PostMapping("/signUp")
+    public ResponseEntity<?> signUpUser(@Valid @RequestBody LoginRequest loginRequest, BindingResult bindingResult) throws InterruptedException {
+        ResponseEntity<?> errors = responseErrorValidation.mapValidationService(bindingResult);
+        if (!ObjectUtils.isEmpty(errors)) return errors;
+        userService.setUserPassword(loginRequest);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @PostMapping("/search")
     public ResponseEntity<?> searchUser(@Valid @RequestBody SearchUserRequest searchUserRequest, BindingResult bindingResult) throws InterruptedException {
         ResponseEntity<?> errors = responseErrorValidation.mapValidationService(bindingResult);
