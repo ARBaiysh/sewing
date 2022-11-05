@@ -28,12 +28,14 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
-    private String firstName;
-    private String lastName;
-    @Column(unique = true)
-    private String email;
-    @Column(length = 300)
+    private String inn;
+    private String personalId;
+    private String fullName;
+    private String uuid;
+    private String position;
+    private String positionUuid;
+    private String division;
+    private String divisionUuid;
     private String password;
 
     @ElementCollection(targetClass = ERole.class, fetch = FetchType.EAGER)
@@ -54,12 +56,19 @@ public class User implements UserDetails {
         this.createdDate = LocalDateTime.now();
     }
 
-    public User(Long id, String username, String email, String password, EStatus status, Collection<? extends GrantedAuthority> authorities) {
+
+    public User(Long id, String inn, String personalId, String fullName, String uuid, String position, String positionUuid,
+                String division, String divisionUuid, String password, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
-        this.username = username;
-        this.email = email;
+        this.inn = inn;
+        this.personalId = personalId;
+        this.fullName = fullName;
+        this.uuid = uuid;
+        this.position = position;
+        this.positionUuid = positionUuid;
+        this.division = division;
+        this.divisionUuid = divisionUuid;
         this.password = password;
-        this.status = status;
         this.authorities = authorities;
     }
 
@@ -70,23 +79,28 @@ public class User implements UserDetails {
     }
 
     @Override
+    public String getUsername() {
+        return personalId;
+    }
+
+    @Override
     public boolean isAccountNonExpired() {
-        return status.equals(EStatus.ACTIVE);
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return status.equals(EStatus.ACTIVE);
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return status.equals(EStatus.ACTIVE);
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return status.equals(EStatus.ACTIVE);
+        return true;
     }
 
     @Override
@@ -94,11 +108,11 @@ public class User implements UserDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(email, user.email);
+        return Objects.equals(id, user.id) && Objects.equals(personalId, user.personalId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, email);
+        return Objects.hash(id, personalId);
     }
 }

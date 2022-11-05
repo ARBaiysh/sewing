@@ -20,12 +20,11 @@ public class CustomUserDetailsService implements UserDetailsService {
     private final UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) {
-        User user = userRepository.findUserByEmail(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Username not found with username: " + username));
+    public UserDetails loadUserByUsername(String personalId) {
+        User user = userRepository.findUserByPersonalId(personalId)
+                .orElseThrow(() -> new UsernameNotFoundException("Username not found with username: " + personalId));
         return build(user);
     }
-
 
     public static User build(User user) {
         List<GrantedAuthority> authorities = user.getRoles().stream()
@@ -34,10 +33,15 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         return new User(
                 user.getId(),
-                user.getUsername(),
-                user.getEmail(),
+                user.getInn(),
+                user.getPersonalId(),
+                user.getFullName(),
+                user.getUuid(),
+                user.getPosition(),
+                user.getPositionUuid(),
+                user.getDivision(),
+                user.getDivisionUuid(),
                 user.getPassword(),
-                user.getStatus(),
                 authorities);
     }
 }

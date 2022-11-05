@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
-
 @RestController
 @RequestMapping("api/user")
 @Slf4j
@@ -24,20 +23,16 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('SEAMSTRESS')")
     public ResponseEntity<UserDTO> getCurrentUser(Principal principal) {
         User user = userService.getCurrentUser(principal);
-        UserDTO userDTO = UserFacade.userToUserDTO(user);
-
-        return new ResponseEntity<>(userDTO, HttpStatus.OK);
+        return new ResponseEntity<>(UserFacade.UserInUserDTO(user), HttpStatus.OK);
     }
 
     @GetMapping("/id/{userId}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<UserDTO> getUserProfile(@PathVariable String userId) {
+    public ResponseEntity<User> getUserProfile(@PathVariable String userId) {
         User user = userService.getUserById(userId);
-        UserDTO userDTO = UserFacade.userToUserDTO(user);
-
-        return new ResponseEntity<>(userDTO, HttpStatus.OK);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }
