@@ -13,7 +13,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.net.URISyntaxException;
 import java.security.Principal;
 
 @Service
@@ -84,11 +83,7 @@ public class UserService {
     public boolean existsUserBy1CBases(String username) {
         Iterable<SignUpRequest> userByBase1C = restClientUsers.findUserByBase1C(username);
         SignUpRequest newUser = userByBase1C.iterator().next();
-        if (!newUser.getUuid().isEmpty()) {
-            return true;
-        } else {
-            return false;
-        }
+        return !newUser.getUuid().isEmpty();
     }
 
     public void addNewUser(LoginRequest loginRequest) {
