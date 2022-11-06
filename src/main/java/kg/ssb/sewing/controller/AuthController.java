@@ -56,17 +56,16 @@ public class AuthController {
     }
 
     @PostMapping("/search")
-    public ResponseEntity<?> searchUser(@Valid @RequestBody SearchUserRequest searchUserRequest, BindingResult bindingResult) throws InterruptedException {
+    public ResponseEntity<?> searchUser(@Valid @RequestBody SearchUserRequest searchUserRequest, BindingResult bindingResult) {
         ResponseEntity<?> errors = responseErrorValidation.mapValidationService(bindingResult);
+
         if (!ObjectUtils.isEmpty(errors)) return errors;
         if (userService.existsUserByPersonalId(searchUserRequest.getUsername())) {
             return new ResponseEntity<>(HttpStatus.OK);
-        } else if (userService.existsUserBy1CBases(searchUserRequest.getUsername()) == 0) {
+        } else if (userService.existsUserBy1CBases(searchUserRequest.getUsername())) {
             return new ResponseEntity<>(HttpStatus.CREATED);
-        } else if (userService.existsUserBy1CBases(searchUserRequest.getUsername()) == -1){
+        } else {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }else {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 }

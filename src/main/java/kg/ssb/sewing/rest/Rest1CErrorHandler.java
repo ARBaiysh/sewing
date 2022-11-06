@@ -16,6 +16,5 @@ public class Rest1CErrorHandler extends DefaultResponseErrorHandler {
         log.error(response.getStatusCode().toString());
         log.error(StreamUtils.copyToString(response.getBody(),
                 Charset.defaultCharset()));
-
     }
 }

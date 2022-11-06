@@ -81,28 +81,20 @@ public class UserService {
 //        restClientUsers.findUsersByBase1C().forEach(this::createUser);
 //    }
 
-    public int existsUserBy1CBases(String username) {
-        try {
-            Iterable<SignUpRequest> userByBase1C = restClientUsers.findUserByBase1C(username);
-            SignUpRequest newUser = userByBase1C.iterator().next();
-            if (newUser.getUuid().isEmpty()) {
-                return -1;
-            } else {
-                return 0;
-            }
-        } catch (URISyntaxException e) {
-            return 1;
+    public boolean existsUserBy1CBases(String username) {
+        Iterable<SignUpRequest> userByBase1C = restClientUsers.findUserByBase1C(username);
+        SignUpRequest newUser = userByBase1C.iterator().next();
+        if (!newUser.getUuid().isEmpty()) {
+            return true;
+        } else {
+            return false;
         }
     }
 
     public void addNewUser(LoginRequest loginRequest) {
 
-        try {
-            Iterable<SignUpRequest> userByBase1C = restClientUsers.findUserByBase1C(loginRequest.getUsername());
-            SignUpRequest newUser = userByBase1C.iterator().next();
-            this.createUser(newUser, loginRequest.getPassword());
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
+        Iterable<SignUpRequest> userByBase1C = restClientUsers.findUserByBase1C(loginRequest.getUsername());
+        SignUpRequest newUser = userByBase1C.iterator().next();
+        this.createUser(newUser, loginRequest.getPassword());
     }
 }
