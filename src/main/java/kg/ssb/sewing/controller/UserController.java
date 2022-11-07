@@ -26,7 +26,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/")
-    @PreAuthorize("hasRole('SEAMSTRESS')")
+    @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
     public ResponseEntity<UserDTO> getCurrentUser(Principal principal) {
         User user = userService.getCurrentUser(principal);
         return new ResponseEntity<>(UserFacade.UserInUserDTO(user), HttpStatus.OK);
