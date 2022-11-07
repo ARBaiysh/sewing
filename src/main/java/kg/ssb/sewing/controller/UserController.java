@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.security.Principal;
 
 @RestController
-@RequestMapping("api/user")
+@RequestMapping("/api/user")
 @Slf4j
 @RequiredArgsConstructor
 @CrossOrigin

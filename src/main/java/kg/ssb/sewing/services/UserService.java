@@ -6,9 +6,10 @@ import kg.ssb.sewing.entity.enums.EStatus;
 import kg.ssb.sewing.payload.request.LoginRequest;
 import kg.ssb.sewing.payload.request.SignUpRequest;
 import kg.ssb.sewing.repository.UserRepository;
-import kg.ssb.sewing.rest.RestClientUsers;
+import kg.ssb.sewing.rest.Rest1cClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ import java.security.Principal;
 @Slf4j
 public class UserService {
     private final UserRepository userRepository;
-    private final RestClientUsers restClientUsers;
+    private final Rest1cClient rest1cClient;
     private final BCryptPasswordEncoder passwordEncoder;
 
 
@@ -67,29 +68,20 @@ public class UserService {
         return !passwordEncoder.matches("123456", user.getPassword());
     }
 
-    public User getUserById(String id) {
-        return userRepository.findById(Long.parseLong(id)).orElseThrow(() -> new UsernameNotFoundException("User not found"));
-    }
-
     public boolean existsUserByPersonalId(String personalId) {
         return userRepository.existsUserByPersonalId(personalId);
     }
 
-//    @Scheduled(initialDelayString = "11111000", fixedDelayString = "600000000")
-//    private void installUsersFor1c() throws URISyntaxException {
-//        restClientUsers.findUsersByBase1C().forEach(this::createUser);
-//    }
-
     public boolean existsUserBy1CBases(String username) {
-        Iterable<SignUpRequest> userByBase1C = restClientUsers.findUserByBase1C(username);
-        SignUpRequest newUser = userByBase1C.iterator().next();
-        return !newUser.getUuid().isEmpty();
+        ResponseEntity<SignUpRequest> userByPersonalId = rest1cClient.getUserByPersonalId(username);
+        SignUpRequest user = userByPersonalId.getBody();
+        assert user != null;
+        return !user.getUuid().isEmpty();
     }
 
     public void addNewUser(LoginRequest loginRequest) {
-
-        Iterable<SignUpRequest> userByBase1C = restClientUsers.findUserByBase1C(loginRequest.getUsername());
-        SignUpRequest newUser = userByBase1C.iterator().next();
+        SignUpRequest newUser = rest1cClient.getUserByPersonalId(loginRequest.getUsername()).getBody();
+        assert newUser != null;
         this.createUser(newUser, loginRequest.getPassword());
     }
 }

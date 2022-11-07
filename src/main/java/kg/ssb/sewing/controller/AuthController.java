@@ -48,18 +48,13 @@ public class AuthController {
     }
 
     @PostMapping("/signUp")
-    public ResponseEntity<?> signUpUser(@Valid @RequestBody LoginRequest loginRequest, BindingResult bindingResult) {
-        ResponseEntity<?> errors = responseErrorValidation.mapValidationService(bindingResult);
-        if (!ObjectUtils.isEmpty(errors)) return errors;
+    public ResponseEntity<?> signUpUser(@Valid @RequestBody LoginRequest loginRequest) {
         userService.addNewUser(loginRequest);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping("/search")
-    public ResponseEntity<?> searchUser(@Valid @RequestBody SearchUserRequest searchUserRequest, BindingResult bindingResult) {
-        ResponseEntity<?> errors = responseErrorValidation.mapValidationService(bindingResult);
-
-        if (!ObjectUtils.isEmpty(errors)) return errors;
+    public ResponseEntity<?> searchUser(@Valid @RequestBody SearchUserRequest searchUserRequest) {
         if (userService.existsUserByPersonalId(searchUserRequest.getUsername())) {
             return new ResponseEntity<>(HttpStatus.OK);
         } else if (userService.existsUserBy1CBases(searchUserRequest.getUsername())) {
