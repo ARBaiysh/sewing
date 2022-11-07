@@ -25,7 +25,7 @@ public class BantController {
 
     private final BantService bantService;
 
-    @GetMapping("")
+    @GetMapping()
     @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
     public ResponseEntity<List<BantDTO>> getAllBant() {
         List<BantDTO> bantDTOList = bantService.getAll();
