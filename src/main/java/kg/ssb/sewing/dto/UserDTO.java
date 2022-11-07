@@ -1,4 +1,4 @@
-package kg.ssb.sewing.payload.request.dto;
+package kg.ssb.sewing.dto;
 
 
 import kg.ssb.sewing.entity.enums.ERole;

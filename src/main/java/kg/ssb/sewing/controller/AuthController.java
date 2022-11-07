@@ -1,8 +1,8 @@
 package kg.ssb.sewing.controller;
 
-import kg.ssb.sewing.payload.request.LoginRequest;
-import kg.ssb.sewing.payload.request.SearchUserRequest;
-import kg.ssb.sewing.payload.response.JWTTokenSuccessResponse;
+import kg.ssb.sewing.dto.LoginRequestDTO;
+import kg.ssb.sewing.dto.SearchUserRequestDTO;
+import kg.ssb.sewing.dto.JWTTokenSuccessResponseDTO;
 import kg.ssb.sewing.security.JWTTokenProvider;
 import kg.ssb.sewing.security.SecurityConstants;
 import kg.ssb.sewing.services.UserService;
@@ -35,7 +35,7 @@ public class AuthController {
 
 
     @PostMapping("/signin")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, BindingResult bindingResult) {
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequestDTO loginRequest, BindingResult bindingResult) {
         ResponseEntity<?> errors = responseErrorValidation.mapValidationService(bindingResult);
         if (!ObjectUtils.isEmpty(errors)) return errors;
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
@@ -44,17 +44,17 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = SecurityConstants.TOKEN_PREFIX + jwtTokenProvider.generateToken(authentication);
 
-        return ResponseEntity.ok(new JWTTokenSuccessResponse(userService.getUserPasswordUnDefault(loginRequest.getUsername()), jwt));
+        return ResponseEntity.ok(new JWTTokenSuccessResponseDTO(userService.getUserPasswordUnDefault(loginRequest.getUsername()), jwt));
     }
 
     @PostMapping("/signUp")
-    public ResponseEntity<?> signUpUser(@Valid @RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<?> signUpUser(@Valid @RequestBody LoginRequestDTO loginRequest) {
         userService.addNewUser(loginRequest);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping("/search")
-    public ResponseEntity<?> searchUser(@Valid @RequestBody SearchUserRequest searchUserRequest) {
+    public ResponseEntity<?> searchUser(@Valid @RequestBody SearchUserRequestDTO searchUserRequest) {
         if (userService.existsUserByPersonalId(searchUserRequest.getUsername())) {
             return new ResponseEntity<>(HttpStatus.OK);
         } else if (userService.existsUserBy1CBases(searchUserRequest.getUsername())) {

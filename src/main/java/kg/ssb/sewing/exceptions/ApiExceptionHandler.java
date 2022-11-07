@@ -1,6 +1,6 @@
 package kg.ssb.sewing.exceptions;
 
-import kg.ssb.sewing.payload.response.MessageResponse;
+import kg.ssb.sewing.dto.MessageResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ApiExceptionHandler {
     @ExceptionHandler(value = {ObjExistException.class})
     public ResponseEntity<?> objExistException(ObjExistException exception) {
-        MessageResponse messageResponse = new MessageResponse(exception.getMessage());
+        MessageResponseDTO messageResponse = new MessageResponseDTO(exception.getMessage());
         return new ResponseEntity<>(messageResponse, HttpStatus.BAD_REQUEST);
     }
 }

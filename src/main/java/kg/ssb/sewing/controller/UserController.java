@@ -2,7 +2,7 @@ package kg.ssb.sewing.controller;
 
 import kg.ssb.sewing.entity.User;
 import kg.ssb.sewing.facade.UserFacade;
-import kg.ssb.sewing.payload.request.dto.UserDTO;
+import kg.ssb.sewing.dto.UserDTO;
 import kg.ssb.sewing.services.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

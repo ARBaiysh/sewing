@@ -1,11 +1,11 @@
-package kg.ssb.sewing.payload.response;
+package kg.ssb.sewing.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class MessageResponse {
+public class MessageResponseDTO {
     private final String message;
 }
 

@@ -1,10 +1,10 @@
-package kg.ssb.sewing.payload.request;
+package kg.ssb.sewing.dto;
 
 import lombok.Data;
 
 
 @Data
-public class SignUpRequest {
+public class SignUpRequestDTO {
     private String inn;
     private String personalId;
     private String fullName;

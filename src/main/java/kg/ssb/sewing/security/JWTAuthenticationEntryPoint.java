@@ -1,7 +1,7 @@
 package kg.ssb.sewing.security;
 
 import com.google.gson.Gson;
-import kg.ssb.sewing.payload.response.InvalidLoginResponse;
+import kg.ssb.sewing.dto.InvalidLoginResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -16,7 +16,7 @@ public class JWTAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException {
-        InvalidLoginResponse loginResponse = new InvalidLoginResponse();
+        InvalidLoginResponseDTO loginResponse = new InvalidLoginResponseDTO();
         String jsonLoginResponse = new Gson().toJson(loginResponse);
         response.setContentType(SecurityConstants.CONTENT_TYPE);
         response.setStatus(HttpStatus.UNAUTHORIZED.value());

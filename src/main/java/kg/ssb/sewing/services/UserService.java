@@ -3,10 +3,10 @@ package kg.ssb.sewing.services;
 import kg.ssb.sewing.entity.User;
 import kg.ssb.sewing.entity.enums.ERole;
 import kg.ssb.sewing.entity.enums.EStatus;
-import kg.ssb.sewing.payload.request.LoginRequest;
-import kg.ssb.sewing.payload.request.SignUpRequest;
+import kg.ssb.sewing.dto.LoginRequestDTO;
+import kg.ssb.sewing.dto.SignUpRequestDTO;
 import kg.ssb.sewing.repository.UserRepository;
-import kg.ssb.sewing.rest.Rest1cClient;
+import kg.ssb.sewing.rest.Rest1cClientUser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -21,11 +21,11 @@ import java.security.Principal;
 @Slf4j
 public class UserService {
     private final UserRepository userRepository;
-    private final Rest1cClient rest1cClient;
+    private final Rest1cClientUser rest1CClientUser;
     private final BCryptPasswordEncoder passwordEncoder;
 
 
-    public void createUser(SignUpRequest userIn, String password) {
+    public void createUser(SignUpRequestDTO userIn, String password) {
         if (userRepository.existsUserByPersonalId(userIn.getPersonalId())) {
             log.error("The user " + userIn.getPersonalId() + " already exist. Please check credentials");
         } else {
@@ -73,14 +73,14 @@ public class UserService {
     }
 
     public boolean existsUserBy1CBases(String username) {
-        ResponseEntity<SignUpRequest> userByPersonalId = rest1cClient.getUserByPersonalId(username);
-        SignUpRequest user = userByPersonalId.getBody();
+        ResponseEntity<SignUpRequestDTO> userByPersonalId = rest1CClientUser.getUserByPersonalId(username);
+        SignUpRequestDTO user = userByPersonalId.getBody();
         assert user != null;
         return !user.getUuid().isEmpty();
     }
 
-    public void addNewUser(LoginRequest loginRequest) {
-        SignUpRequest newUser = rest1cClient.getUserByPersonalId(loginRequest.getUsername()).getBody();
+    public void addNewUser(LoginRequestDTO loginRequest) {
+        SignUpRequestDTO newUser = rest1CClientUser.getUserByPersonalId(loginRequest.getUsername()).getBody();
         assert newUser != null;
         this.createUser(newUser, loginRequest.getPassword());
     }
