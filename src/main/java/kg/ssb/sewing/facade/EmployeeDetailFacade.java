@@ -1,12 +1,12 @@
 package kg.ssb.sewing.facade;
 
 import kg.ssb.sewing.dto.EmployeeDetailDTOIn;
-import kg.ssb.sewing.entity.EmployeeWorkingTime;
+import kg.ssb.sewing.entity.EmployeeDetail;
 
-public class EmployeeDetailWorkingTimeFacade {
+public class EmployeeDetailFacade {
 
-    public static EmployeeWorkingTime employeeDetailDTOInToEmployeeWorkingTime(EmployeeDetailDTOIn employeeDetailDTOIn) {
-        return new EmployeeWorkingTime(
+    public static EmployeeDetail employeeDetailDTOInToEmployeeDetail(EmployeeDetailDTOIn employeeDetailDTOIn) {
+        return new EmployeeDetail(
                 employeeDetailDTOIn.getEmployeeUuid(),
                 employeeDetailDTOIn.getMasterUuid(),
                 employeeDetailDTOIn.getAction(),

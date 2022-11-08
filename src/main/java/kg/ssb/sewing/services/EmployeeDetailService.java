@@ -1,12 +1,16 @@
 package kg.ssb.sewing.services;
 
 
+import kg.ssb.sewing.dto.EmployeeDetailDTOIn;
 import kg.ssb.sewing.entity.EmployeeDetail;
-import kg.ssb.sewing.entity.EmployeeWorkingTime;
+import kg.ssb.sewing.facade.EmployeeDetailFacade;
 import kg.ssb.sewing.repository.EmployeeDetailRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -15,21 +19,17 @@ public class EmployeeDetailService {
     private final EmployeeDetailRepository employeeDetailRepository;
 
 
-    public EmployeeDetail saveEmployeeDetailWorkingTime(EmployeeWorkingTime employeeWorkingTime) {
-        String employeeUuid = employeeWorkingTime.getEmployeeUuid();
-        if (employeeDetailRepository.existsEmployeeDetailByEmployeeUuid(employeeUuid)) {
-            EmployeeDetail employeeDetail = employeeDetailRepository.findById(employeeUuid).get();
-            employeeDetail.getWorkingTimeList().add(employeeWorkingTime);
+    public EmployeeDetail getEmployeeDetailByEmployeeUuid(EmployeeDetailDTOIn employeeDetailDTOIn) {
+        if (!employeeDetailDTOIn.getAction().isEmpty()) {
+            EmployeeDetail employeeDetail = EmployeeDetailFacade.employeeDetailDTOInToEmployeeDetail(employeeDetailDTOIn);
+            employeeDetail.setDateTime(LocalDateTime.now());
             return employeeDetailRepository.save(employeeDetail);
         } else {
-            EmployeeDetail employeeDetail = new EmployeeDetail();
-            employeeDetail.setEmployeeUuid(employeeUuid);
-            employeeDetail.getWorkingTimeList().add(employeeWorkingTime);
-            return employeeDetailRepository.save(employeeDetail);
+            return employeeDetailRepository.findFirstByOrderByIdDesc();
         }
     }
 
-    public EmployeeDetail getEmployeeDetailByEmployeeUuid(String employeeUuid) {
-        return employeeDetailRepository.findById(employeeUuid).orElse(new EmployeeDetail());
+    public List<EmployeeDetail> getAllEmployeeDetails(String employeeUuid) {
+        return employeeDetailRepository.findAllByEmployeeUuidOrderByIdDesc(employeeUuid);
     }
 }

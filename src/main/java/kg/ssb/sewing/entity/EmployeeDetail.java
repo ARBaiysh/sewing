@@ -1,13 +1,16 @@
 package kg.ssb.sewing.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -16,12 +19,23 @@ import java.util.List;
 @NoArgsConstructor
 public class EmployeeDetail {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String employeeUuid;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "employeeUuid")
-    private List<EmployeeWorkingTime> workingTimeList = new ArrayList<>();
+    private String masterUuid;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime dateTime;
+    private String action;
+    private String cause;
+    private double rating;
+    private double fine;
 
-    public EmployeeDetail(String employeeUuid) {
+    public EmployeeDetail(String employeeUuid, String masterUuid, String action, String cause, double rating, double fine) {
         this.employeeUuid = employeeUuid;
+        this.masterUuid = masterUuid;
+        this.action = action;
+        this.cause = cause;
+        this.rating = rating;
+        this.fine = fine;
     }
 }
