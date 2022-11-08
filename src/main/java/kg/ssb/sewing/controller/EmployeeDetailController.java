@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -24,6 +25,12 @@ public class EmployeeDetailController {
     @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
     public ResponseEntity<List<EmployeeDetail>> getAllEmployeeDetail(@PathVariable String employeeUuid) {
         return new ResponseEntity<>(employeeDetailService.getAllEmployeeDetails(employeeUuid), HttpStatus.OK);
+    }
+
+    @GetMapping("/today/{employeeUuid}")
+    @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
+    public ResponseEntity<List<EmployeeDetail>> getAllEmployeeDetailToDay(@PathVariable String employeeUuid) {
+        return new ResponseEntity<>(employeeDetailService.getAllEmployeeDetailsData(employeeUuid), HttpStatus.OK);
     }
 
     @PostMapping("")

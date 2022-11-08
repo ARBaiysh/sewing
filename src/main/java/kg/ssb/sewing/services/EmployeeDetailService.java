@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Service
@@ -29,7 +30,13 @@ public class EmployeeDetailService {
         }
     }
 
+    public List<EmployeeDetail> getAllEmployeeDetailsData(String employeeUuid) {
+        LocalDateTime now = LocalDateTime.now();
+        return employeeDetailRepository.findAllByEmployeeUuidAndDateTimeBetween(employeeUuid, now.toLocalDate().atStartOfDay(),now.toLocalDate().atTime(LocalTime.MAX));
+    }
+
     public List<EmployeeDetail> getAllEmployeeDetails(String employeeUuid) {
         return employeeDetailRepository.findAllByEmployeeUuidOrderByIdDesc(employeeUuid);
     }
+
 }
