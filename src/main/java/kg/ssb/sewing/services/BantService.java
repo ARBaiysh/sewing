@@ -1,6 +1,7 @@
 package kg.ssb.sewing.services;
 
 import kg.ssb.sewing.dto.BantDTO;
+import kg.ssb.sewing.dto.BantDTOTrue;
 import kg.ssb.sewing.entity.Bant;
 import kg.ssb.sewing.facade.BantFacade;
 import kg.ssb.sewing.repository.BantRepository;
@@ -10,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -39,5 +41,12 @@ public class BantService {
 
     public List<BantDTO> getBantsMasterUui(String masterUuid) {
         return bantRepository.findAllByMasterUuid(masterUuid).stream().map(BantFacade::BantToBantDTO).collect(Collectors.toList());
+    }
+
+    public List<BantDTOTrue> getAllListTrue() {
+        List<BantDTOTrue> bantDTOTrues = new ArrayList<>();
+        bantRepository.findAllByHasWorkPlace(true)
+                .forEach(bant -> bantDTOTrues.add(new BantDTOTrue(bant.getWorkPlace(), bant.getWorkPlaceUuid())));
+        return bantDTOTrues;
     }
 }

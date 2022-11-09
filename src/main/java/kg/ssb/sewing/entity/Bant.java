@@ -30,13 +30,13 @@ public class Bant {
     private String divisionUuid;
     private String workPlace;
     private String workPlaceUuid;
-    private String hasWorkPlace;
+    private boolean hasWorkPlace;
     private String master;
     private String masterUuid;
 
     public Bant(String inn, String personalId, String dateOfBirth, String fullName, String residence,
                 String placeOfRegistration, String uuid, String position, String positionUuid, String division,
-                String divisionUuid, String workPlace, String workPlaceUuid, String hasWorkPlace, String master,
+                String divisionUuid, String workPlace, String workPlaceUuid, boolean hasWorkPlace, String master,
                 String masterUuid) {
         this.inn = inn;
         this.personalId = personalId;

@@ -19,7 +19,7 @@ public class BantFacade {
                 bant.getDivisionUuid(),
                 bant.getWorkPlace(),
                 bant.getWorkPlaceUuid(),
-                bant.getHasWorkPlace(),
+                bant.isHasWorkPlace(),
                 bant.getMaster(),
                 bant.getMasterUuid());
     }
@@ -39,7 +39,7 @@ public class BantFacade {
                 bantDTO.getDivisionUuid(),
                 bantDTO.getWorkPlace(),
                 bantDTO.getWorkPlaceUuid(),
-                bantDTO.getHasWorkPlace(),
+                bantDTO.isHasWorkPlace(),
                 bantDTO.getMaster(),
                 bantDTO.getMasterUuid());
     }

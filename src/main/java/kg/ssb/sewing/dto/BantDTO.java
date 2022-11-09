@@ -21,7 +21,7 @@ public class BantDTO {
     private String divisionUuid;
     private String workPlace;
     private String workPlaceUuid;
-    private String hasWorkPlace;
+    private boolean hasWorkPlace;
     private String master;
     private String masterUuid;
 }
