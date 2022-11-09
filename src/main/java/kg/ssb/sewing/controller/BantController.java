@@ -41,10 +41,4 @@ public class BantController {
         return new ResponseEntity<>(bantService.getAllTo1c(), HttpStatus.OK);
     }
 
-    @GetMapping("/isTrue")
-    @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
-    public ResponseEntity<List<BantDTOTrue>> getAllBantList() {
-        List<BantDTOTrue> bantDTOList = bantService.getAllListTrue();
-        return new ResponseEntity<>(bantDTOList, HttpStatus.OK);
-    }
 }

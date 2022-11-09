@@ -42,11 +42,4 @@ public class BantService {
     public List<BantDTO> getBantsMasterUui(String masterUuid) {
         return bantRepository.findAllByMasterUuid(masterUuid).stream().map(BantFacade::BantToBantDTO).collect(Collectors.toList());
     }
-
-    public List<BantDTOTrue> getAllListTrue() {
-        List<BantDTOTrue> bantDTOTrues = new ArrayList<>();
-        bantRepository.findAllByHasWorkPlace(true)
-                .forEach(bant -> bantDTOTrues.add(new BantDTOTrue(bant.getWorkPlace(), bant.getWorkPlaceUuid())));
-        return bantDTOTrues;
-    }
 }

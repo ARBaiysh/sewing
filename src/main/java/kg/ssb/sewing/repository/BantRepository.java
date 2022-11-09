@@ -10,5 +10,4 @@ import java.util.List;
 public interface BantRepository extends JpaRepository<Bant, Long> {
     List<Bant> findAllByMasterUuid(String masterUuid);
 
-    List<Bant> findAllByHasWorkPlace(boolean is);
 }
