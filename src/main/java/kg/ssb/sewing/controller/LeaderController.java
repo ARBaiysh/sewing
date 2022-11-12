@@ -34,7 +34,7 @@ public class LeaderController {
 
     @GetMapping("/{id}")
     public ResponseEntity<List<LeaderDto>> getLeaderById(@PathVariable String id) {
-        List<LeaderDto> leaderDtos = leaderService.getLeaders();
+        List<LeaderDto> leaderDtos = leaderService.getLeadersByLeaderUuid(id);
         return new ResponseEntity<>(leaderDtos, HttpStatus.OK);
     }
 

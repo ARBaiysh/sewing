@@ -26,11 +26,16 @@ public class LeaderService {
     public String saveLeader() {
         List<LeaderDto> leaderDtos = Objects.requireNonNull(rest1cClientLeader.get().getBody());
         leaderRepository.saveAll(leaderDtos.stream().map(leaderDto -> modelMapper.map(leaderDto, Leader.class)).collect(Collectors.toList()));
-        return "save leader total - "+ leaderDtos.size();
+        return "save leader total - " + leaderDtos.size();
     }
 
 
     public List<LeaderDto> getLeaders() {
         return leaderRepository.findAll().stream().map(leader -> modelMapper.map(leader, LeaderDto.class)).collect(Collectors.toList());
+    }
+
+    public List<LeaderDto> getLeadersByLeaderUuid(String leaderUuid) {
+        List<Leader> allByLeaderUuid = leaderRepository.findAllByLeaderUuid(leaderUuid);
+        return allByLeaderUuid.stream().map(leader -> modelMapper.map(leader, LeaderDto.class)).collect(Collectors.toList());
     }
 }

@@ -18,6 +18,8 @@ public class Leader{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String leaderUuid;
+    private String leader;
     private String inn;
     private String personalId;
     private String dateOfBirth;

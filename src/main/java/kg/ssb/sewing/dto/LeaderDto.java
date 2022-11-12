@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class LeaderDto {
     private String inn;
+    private String leaderUuid;
+    private String leader;
     private String personalId;
     private String dateOfBirth;
     private String fullName;
