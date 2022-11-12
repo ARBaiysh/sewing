@@ -44,6 +44,8 @@ public class UserService {
                 user.getRoles().add(ERole.ROLE_SEAMSTRESS);
             } else if (userIn.getRole().equals("master")) {
                 user.getRoles().add(ERole.ROLE_MASTER);
+            } else if (userIn.getRole().equals("masters_leader")) {
+                user.getRoles().add(ERole.ROLE_MASTERS_LEADER);
             } else {
                 user.getRoles().add(ERole.ROLE_NON);
             }

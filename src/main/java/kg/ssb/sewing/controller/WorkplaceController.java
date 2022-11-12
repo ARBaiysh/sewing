@@ -18,19 +18,18 @@ import java.util.List;
 @RequestMapping("/api/workplace")
 @Slf4j
 @RequiredArgsConstructor
+@PreAuthorize(value = "hasAnyRole('MASTER','SEAMSTRESS','MASTERS_LEADER')")
 @CrossOrigin
 public class WorkplaceController {
 
     private final WorkplaceService workplaceService;
 
     @GetMapping()
-    @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
     public ResponseEntity<List<WorkplaceDTO>> getAllWorkplace() {
         return new ResponseEntity<>(workplaceService.getAllWorkplace(), HttpStatus.OK);
     }
 
     @GetMapping("/save")
-    @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
     public ResponseEntity<String> saveWorkplace() {
         return new ResponseEntity<>(workplaceService.saveWorkplace(), HttpStatus.OK);
     }

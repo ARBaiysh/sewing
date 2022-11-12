@@ -20,13 +20,13 @@ import java.security.Principal;
 @RequestMapping("/api/user")
 @Slf4j
 @RequiredArgsConstructor
+@PreAuthorize(value = "hasAnyRole('MASTER','SEAMSTRESS','MASTERS_LEADER')")
 @CrossOrigin
 public class UserController {
 
     private final UserService userService;
 
     @GetMapping("/")
-    @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
     public ResponseEntity<UserDTO> getCurrentUser(Principal principal) {
         User user = userService.getCurrentUser(principal);
         return new ResponseEntity<>(UserFacade.UserInUserDTO(user), HttpStatus.OK);

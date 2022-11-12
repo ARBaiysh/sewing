@@ -17,24 +17,22 @@ import java.util.List;
 @RequestMapping("/api/employeeDetail")
 @Slf4j
 @RequiredArgsConstructor
+@PreAuthorize(value = "hasAnyRole('MASTER','SEAMSTRESS','MASTERS_LEADER')")
 @CrossOrigin
 public class EmployeeDetailController {
     private final EmployeeDetailService employeeDetailService;
 
     @GetMapping("/{employeeUuid}")
-    @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
     public ResponseEntity<List<EmployeeDetail>> getAllEmployeeDetail(@PathVariable String employeeUuid) {
         return new ResponseEntity<>(employeeDetailService.getAllEmployeeDetails(employeeUuid), HttpStatus.OK);
     }
 
     @GetMapping("/today/{employeeUuid}")
-    @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
     public ResponseEntity<List<EmployeeDetail>> getAllEmployeeDetailToDay(@PathVariable String employeeUuid) {
         return new ResponseEntity<>(employeeDetailService.getAllEmployeeDetailsData(employeeUuid), HttpStatus.OK);
     }
 
     @PostMapping("")
-    @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
     public ResponseEntity<EmployeeDetail> getEmployeeDetail(@RequestBody EmployeeDetailDTOIn employeeDetailDTOIn) {
         EmployeeDetail employeeDetail = employeeDetailService.getEmployeeDetailByEmployeeUuid(employeeDetailDTOIn);
         return new ResponseEntity<>(employeeDetail, HttpStatus.OK);

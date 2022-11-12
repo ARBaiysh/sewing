@@ -15,27 +15,25 @@ import java.util.List;
 @RequestMapping("/api/bant")
 @Slf4j
 @RequiredArgsConstructor
+@PreAuthorize(value = "hasAnyRole('MASTER','SEAMSTRESS','MASTERS_LEADER')")
 @CrossOrigin
 public class BantController {
 
     private final BantService bantService;
 
     @GetMapping()
-    @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
     public ResponseEntity<List<BantDTO>> getAllBant() {
         List<BantDTO> bantDTOList = bantService.getAll();
         return new ResponseEntity<>(bantDTOList, HttpStatus.OK);
     }
 
     @GetMapping("/{masterUuid}")
-    @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
     public ResponseEntity<List<BantDTO>> getBantsByMasterUuid(@PathVariable String masterUuid) {
         List<BantDTO> bantDTOList = bantService.getBantsMasterUui(masterUuid);
         return new ResponseEntity<>(bantDTOList, HttpStatus.OK);
     }
 
     @GetMapping("/save")
-    @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
     public ResponseEntity<String> saveAllBant() {
         return new ResponseEntity<>(bantService.getAllTo1c(), HttpStatus.OK);
 
