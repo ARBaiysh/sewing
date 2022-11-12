@@ -1,6 +1,6 @@
 package kg.ssb.sewing.rest;
 
-import kg.ssb.sewing.dto.BantDTO;
+import kg.ssb.sewing.dto.EmployeeDTO;
 import kg.ssb.sewing.rest.config.Rest1cConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 @FeignClient(value = "best1cClientBant", url = "${base1c.url}", configuration = Rest1cConfig.class)
-public interface Rest1cClientBant {
-    @RequestMapping(method = RequestMethod.GET, value = "bant", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<BantDTO>> getAllBants();
+public interface Rest1cClientEmployee {
+    @RequestMapping(method = RequestMethod.GET, value = "employee", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<List<EmployeeDTO>> getAllEmployees();
 }

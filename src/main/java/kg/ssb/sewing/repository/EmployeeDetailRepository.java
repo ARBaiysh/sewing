@@ -15,5 +15,6 @@ public interface EmployeeDetailRepository extends JpaRepository<EmployeeDetail, 
     EmployeeDetail findFirstByOrderByIdDesc();
 
     List<EmployeeDetail> findAllByEmployeeUuidOrderByIdDesc(String employeeUuid);
+
     List<EmployeeDetail> findAllByEmployeeUuidAndDateTimeBetween(String employeeUuid, LocalDateTime dateTimeStart, LocalDateTime dateTimeEnd);
 }

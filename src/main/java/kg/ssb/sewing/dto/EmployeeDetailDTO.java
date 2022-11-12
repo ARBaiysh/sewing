@@ -1,9 +1,11 @@
 package kg.ssb.sewing.dto;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-public class EmployeeDetailDTOIn {
+@NoArgsConstructor
+public class EmployeeDetailDTO {
     private String employeeUuid;
     private String masterUuid;
     private String action;

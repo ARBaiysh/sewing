@@ -1,7 +1,5 @@
 package kg.ssb.sewing.controller;
 
-import kg.ssb.sewing.entity.User;
-import kg.ssb.sewing.facade.UserFacade;
 import kg.ssb.sewing.dto.UserDTO;
 import kg.ssb.sewing.services.UserService;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +26,7 @@ public class UserController {
 
     @GetMapping("/")
     public ResponseEntity<UserDTO> getCurrentUser(Principal principal) {
-        User user = userService.getCurrentUser(principal);
-        return new ResponseEntity<>(UserFacade.UserInUserDTO(user), HttpStatus.OK);
+        UserDTO user = userService.getCurrentUser(principal);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

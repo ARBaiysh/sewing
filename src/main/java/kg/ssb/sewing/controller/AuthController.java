@@ -1,8 +1,8 @@
 package kg.ssb.sewing.controller;
 
+import kg.ssb.sewing.dto.JWTTokenSuccessResponseDTO;
 import kg.ssb.sewing.dto.LoginRequestDTO;
 import kg.ssb.sewing.dto.SearchUserRequestDTO;
-import kg.ssb.sewing.dto.JWTTokenSuccessResponseDTO;
 import kg.ssb.sewing.security.JWTTokenProvider;
 import kg.ssb.sewing.security.SecurityConstants;
 import kg.ssb.sewing.services.UserService;

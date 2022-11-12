@@ -1,6 +1,6 @@
 package kg.ssb.sewing.controller;
 
-import kg.ssb.sewing.dto.EmployeeDetailDTOIn;
+import kg.ssb.sewing.dto.EmployeeDetailDTO;
 import kg.ssb.sewing.entity.EmployeeDetail;
 import kg.ssb.sewing.services.EmployeeDetailService;
 import lombok.RequiredArgsConstructor;
@@ -32,8 +32,8 @@ public class EmployeeDetailController {
     }
 
     @PostMapping("")
-    public ResponseEntity<EmployeeDetail> getEmployeeDetail(@RequestBody EmployeeDetailDTOIn employeeDetailDTOIn) {
-        EmployeeDetail employeeDetail = employeeDetailService.getEmployeeDetailByEmployeeUuid(employeeDetailDTOIn);
+    public ResponseEntity<EmployeeDetail> getEmployeeDetail(@RequestBody EmployeeDetailDTO employeeDetailDTO) {
+        EmployeeDetail employeeDetail = employeeDetailService.getEmployeeDetailByEmployeeUuid(employeeDetailDTO);
         return new ResponseEntity<>(employeeDetail, HttpStatus.OK);
     }
 }

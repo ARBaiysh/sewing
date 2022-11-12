@@ -1,6 +1,9 @@
 package kg.ssb.sewing.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,11 +13,10 @@ import javax.persistence.Id;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @Entity
 @NoArgsConstructor
 @ToString
-public class Leader{
+public class Leader {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

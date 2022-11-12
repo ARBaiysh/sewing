@@ -1,7 +1,6 @@
 package kg.ssb.sewing.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,7 +14,6 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class EmployeeDetail {
     @Id
@@ -30,12 +28,4 @@ public class EmployeeDetail {
     private double rating;
     private double fine;
 
-    public EmployeeDetail(String employeeUuid, String masterUuid, String action, String cause, double rating, double fine) {
-        this.employeeUuid = employeeUuid;
-        this.masterUuid = masterUuid;
-        this.action = action;
-        this.cause = cause;
-        this.rating = rating;
-        this.fine = fine;
-    }
 }

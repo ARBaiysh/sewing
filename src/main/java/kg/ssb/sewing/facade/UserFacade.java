@@ -1,7 +1,7 @@
 package kg.ssb.sewing.facade;
 
-import kg.ssb.sewing.entity.User;
 import kg.ssb.sewing.dto.UserDTO;
+import kg.ssb.sewing.entity.User;
 
 public class UserFacade {
     public static UserDTO UserInUserDTO(User user){
