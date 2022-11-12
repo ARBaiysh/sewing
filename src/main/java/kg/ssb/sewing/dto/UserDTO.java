@@ -2,10 +2,8 @@ package kg.ssb.sewing.dto;
 
 
 import kg.ssb.sewing.entity.enums.ERole;
-import kg.ssb.sewing.entity.enums.EStatus;
 import lombok.Data;
 
-import java.util.Set;
 
 @Data
 public class UserDTO {

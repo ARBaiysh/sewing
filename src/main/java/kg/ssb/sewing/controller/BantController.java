@@ -1,7 +1,6 @@
 package kg.ssb.sewing.controller;
 
 import kg.ssb.sewing.dto.BantDTO;
-import kg.ssb.sewing.dto.BantDTOTrue;
 import kg.ssb.sewing.services.BantService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -39,6 +38,6 @@ public class BantController {
     @PreAuthorize("hasAnyRole('MASTER','SEAMSTRESS')")
     public ResponseEntity<String> saveAllBant() {
         return new ResponseEntity<>(bantService.getAllTo1c(), HttpStatus.OK);
-    }
 
+    }
 }
