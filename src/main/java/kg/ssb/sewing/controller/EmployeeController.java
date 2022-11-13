@@ -1,6 +1,8 @@
 package kg.ssb.sewing.controller;
 
 import kg.ssb.sewing.dto.EmployeeDTO;
+import kg.ssb.sewing.dto.EmployeeUpdateWorkPlaceUuidDTO;
+import kg.ssb.sewing.dto.LoginRequestDTO;
 import kg.ssb.sewing.services.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -27,7 +30,7 @@ public class EmployeeController {
         return new ResponseEntity<>(bantDTOList, HttpStatus.OK);
     }
 
-    @GetMapping("/{masterUuid}")
+    @GetMapping("/masterUuid/{masterUuid}")
     public ResponseEntity<List<EmployeeDTO>> getEmployeesByMasterUuid(@PathVariable String masterUuid) {
         List<EmployeeDTO> bantDTOList = employeeService.getEmployeesMasterUui(masterUuid);
         return new ResponseEntity<>(bantDTOList, HttpStatus.OK);
@@ -35,14 +38,20 @@ public class EmployeeController {
 
     @GetMapping("/workPlaceUuid/{workPlaceUuid}")
     public ResponseEntity<List<EmployeeDTO>> getEmployeesByWorkPlaceUuid(@PathVariable String workPlaceUuid) {
-        List<EmployeeDTO> bantDTOList = employeeService.getEmployeesWorkPlaceUuid(workPlaceUuid);
-        return new ResponseEntity<>(bantDTOList, HttpStatus.OK);
+        List<EmployeeDTO> employeeDTOS = employeeService.getEmployeesWorkPlaceUuid(workPlaceUuid);
+        return new ResponseEntity<>(employeeDTOS, HttpStatus.OK);
     }
 
 
     @GetMapping("/save")
     public ResponseEntity<String> saveAllEmployee() {
         return new ResponseEntity<>(employeeService.getAllTo1c(), HttpStatus.OK);
-
     }
+
+
+    @PostMapping("/update")
+    public ResponseEntity<Boolean> updateEmployeeWorkPlaceUuid(@Valid @RequestBody EmployeeUpdateWorkPlaceUuidDTO employeeUpdateWorkPlaceUuidDTO) {
+        return new ResponseEntity<>(employeeService.updateEmployeeWorkPlaceUuid(employeeUpdateWorkPlaceUuidDTO), HttpStatus.OK);
+    }
+
 }

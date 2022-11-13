@@ -1,6 +1,7 @@
 package kg.ssb.sewing.services;
 
 import kg.ssb.sewing.dto.EmployeeDTO;
+import kg.ssb.sewing.dto.EmployeeUpdateWorkPlaceUuidDTO;
 import kg.ssb.sewing.entity.Employee;
 import kg.ssb.sewing.repository.EmployeeRepository;
 import kg.ssb.sewing.rest.Rest1cClientEmployee;
@@ -43,5 +44,15 @@ public class EmployeeService {
 
     public List<EmployeeDTO> getEmployeesWorkPlaceUuid(String workPlaceUuid) {
         return employeeRepository.findAllByWorkPlaceUuid(workPlaceUuid).stream().map(employee -> modelMapper.map(employee, EmployeeDTO.class)).collect(Collectors.toList());
+    }
+
+    public boolean updateEmployeeWorkPlaceUuid(EmployeeUpdateWorkPlaceUuidDTO employeeUpdateWorkPlaceUuidDTO) {
+        Employee employee = employeeRepository.findByUuid(employeeUpdateWorkPlaceUuidDTO.getUuid());
+        employee.setWorkPlace(employeeUpdateWorkPlaceUuidDTO.getWorkPlace());
+        employee.setWorkPlaceUuid(employeeUpdateWorkPlaceUuidDTO.getWorkPlaceUuid());
+        employee.setMaster(employeeUpdateWorkPlaceUuidDTO.getMaster());
+        employee.setMasterUuid(employeeUpdateWorkPlaceUuidDTO.getMasterUuid());
+        employeeRepository.save(employee);
+        return true;
     }
 }
