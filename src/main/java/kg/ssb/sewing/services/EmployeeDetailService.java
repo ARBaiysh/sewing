@@ -21,7 +21,7 @@ public class EmployeeDetailService {
     private final ModelMapper modelMapper;
 
 
-    public EmployeeDetail getEmployeeDetailByEmployeeUuid(EmployeeDetailDTO employeeDetailDTO) {
+    public EmployeeDetail saveEmployeeDetailByEmployeeUuid(EmployeeDetailDTO employeeDetailDTO) {
         if (!employeeDetailDTO.getAction().isEmpty()) {
             EmployeeDetail employeeDetail = modelMapper.map(employeeDetailDTO, EmployeeDetail.class);
             employeeDetail.setDateTime(LocalDateTime.now());

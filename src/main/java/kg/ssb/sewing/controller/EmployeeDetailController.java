@@ -32,8 +32,8 @@ public class EmployeeDetailController {
     }
 
     @PostMapping("")
-    public ResponseEntity<EmployeeDetail> getEmployeeDetail(@RequestBody EmployeeDetailDTO employeeDetailDTO) {
-        EmployeeDetail employeeDetail = employeeDetailService.getEmployeeDetailByEmployeeUuid(employeeDetailDTO);
+    public ResponseEntity<EmployeeDetail> saveEmployeeDetail(@RequestBody EmployeeDetailDTO employeeDetailDTO) {
+        EmployeeDetail employeeDetail = employeeDetailService.saveEmployeeDetailByEmployeeUuid(employeeDetailDTO);
         return new ResponseEntity<>(employeeDetail, HttpStatus.OK);
     }
 }

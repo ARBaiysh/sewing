@@ -37,5 +37,4 @@ public class LeaderController {
         List<LeaderDto> leaderDtos = leaderService.getLeadersByLeaderUuid(id);
         return new ResponseEntity<>(leaderDtos, HttpStatus.OK);
     }
-
 }
