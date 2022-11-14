@@ -2,7 +2,9 @@ package kg.ssb.sewing.services;
 
 import kg.ssb.sewing.dto.EmployeeDTO;
 import kg.ssb.sewing.dto.EmployeeUpdateWorkPlaceUuidDTO;
+import kg.ssb.sewing.dto.UserDTO;
 import kg.ssb.sewing.entity.Employee;
+import kg.ssb.sewing.entity.EmployeeTransformEx;
 import kg.ssb.sewing.repository.EmployeeRepository;
 import kg.ssb.sewing.rest.Rest1cClientEmployee;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -20,6 +23,7 @@ import java.util.stream.Collectors;
 public class EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final Rest1cClientEmployee rest1CClientEmployee;
+    private final EmployeeTransformExService employeeTransformExService;
     private final ModelMapper modelMapper;
 
     public void saveEmployee(List<EmployeeDTO> employeeDTOList) {
@@ -46,13 +50,22 @@ public class EmployeeService {
         return employeeRepository.findAllByWorkPlaceUuid(workPlaceUuid).stream().map(employee -> modelMapper.map(employee, EmployeeDTO.class)).collect(Collectors.toList());
     }
 
-    public boolean updateEmployeeWorkPlaceUuid(EmployeeUpdateWorkPlaceUuidDTO employeeUpdateWorkPlaceUuidDTO) {
+    public boolean updateEmployeeWorkPlaceUuid(EmployeeUpdateWorkPlaceUuidDTO employeeUpdateWorkPlaceUuidDTO, UserDTO userDTO) {
         Employee employee = employeeRepository.findByUuid(employeeUpdateWorkPlaceUuidDTO.getUuid());
         employee.setWorkPlace(employeeUpdateWorkPlaceUuidDTO.getWorkPlace());
         employee.setWorkPlaceUuid(employeeUpdateWorkPlaceUuidDTO.getWorkPlaceUuid());
         employee.setMaster(employeeUpdateWorkPlaceUuidDTO.getMaster());
         employee.setMasterUuid(employeeUpdateWorkPlaceUuidDTO.getMasterUuid());
+
+        EmployeeTransformEx employeeTransformEx = new EmployeeTransformEx();
+        employeeTransformEx.setEmployeeUuid(employee.getUuid());
+        employeeTransformEx.setCreateDateTime(LocalDateTime.now());
+        employeeTransformEx.setAuthorUuid(userDTO.getUuid());
+        employeeTransformEx.setWorkPlaceUuid(employee.getWorkPlaceUuid());
+        employeeTransformExService.save(employeeTransformEx);
+        log.info("Save employeeTransformEx current user-{}", userDTO.getPersonalId());
         employeeRepository.save(employee);
+        log.info("Save employee uuid-{}", employee.getUuid());
         return true;
     }
 }

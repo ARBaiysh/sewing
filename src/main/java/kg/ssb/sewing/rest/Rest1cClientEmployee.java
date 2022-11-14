@@ -18,6 +18,6 @@ public interface Rest1cClientEmployee {
     @RequestMapping(method = RequestMethod.GET, value = "employee", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<EmployeeDTO>> getAllEmployees();
 
-    @RequestMapping(method = RequestMethod.POST, value = "tabel", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<?> employeeDetailExport(@RequestBody List<EmployeeDetailExportDTO> employeeDetailExportDTOList);
+//    @RequestMapping(method = RequestMethod.POST, value = "tabel", produces = MediaType.APPLICATION_JSON_VALUE)
+//    ResponseEntity<?> employeeDetailExport(@RequestBody List<EmployeeDetailExportDTO> employeeDetailExportDTOList);
 }

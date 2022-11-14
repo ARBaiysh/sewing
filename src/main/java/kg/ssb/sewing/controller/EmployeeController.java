@@ -3,7 +3,9 @@ package kg.ssb.sewing.controller;
 import kg.ssb.sewing.dto.EmployeeDTO;
 import kg.ssb.sewing.dto.EmployeeUpdateWorkPlaceUuidDTO;
 import kg.ssb.sewing.dto.LoginRequestDTO;
+import kg.ssb.sewing.dto.UserDTO;
 import kg.ssb.sewing.services.EmployeeService;
+import kg.ssb.sewing.services.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -12,6 +14,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -23,6 +26,7 @@ import java.util.List;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
+    private final UserService userService;
 
     @GetMapping()
     public ResponseEntity<List<EmployeeDTO>> getAllEmployee() {
@@ -50,8 +54,9 @@ public class EmployeeController {
 
 
     @PostMapping("/update")
-    public ResponseEntity<Boolean> updateEmployeeWorkPlaceUuid(@Valid @RequestBody EmployeeUpdateWorkPlaceUuidDTO employeeUpdateWorkPlaceUuidDTO) {
-        return new ResponseEntity<>(employeeService.updateEmployeeWorkPlaceUuid(employeeUpdateWorkPlaceUuidDTO), HttpStatus.OK);
+    public ResponseEntity<Boolean> updateEmployeeWorkPlaceUuid(@Valid @RequestBody EmployeeUpdateWorkPlaceUuidDTO employeeUpdateWorkPlaceUuidDTO, Principal principal) {
+        UserDTO currentUser = userService.getCurrentUser(principal);
+        return new ResponseEntity<>(employeeService.updateEmployeeWorkPlaceUuid(employeeUpdateWorkPlaceUuidDTO, currentUser), HttpStatus.OK);
     }
 
 }

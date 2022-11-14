@@ -37,10 +37,8 @@ public class User implements UserDetails {
     private String division;
     private String divisionUuid;
     private String password;
-
-    @ElementCollection(targetClass = ERole.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
-    private Set<ERole> roles = new HashSet<>();
+    @Enumerated(value = EnumType.STRING)
+    private ERole roles;
     @Enumerated(value = EnumType.STRING)
     private EStatus status;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

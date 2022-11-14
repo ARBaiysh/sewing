@@ -29,4 +29,10 @@ public class UserController {
         UserDTO user = userService.getCurrentUser(principal);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
+    @GetMapping("/update")
+    public ResponseEntity<UserDTO> currentUserUpdate(Principal principal) {
+        UserDTO user = userService.currentUserUpdate(principal);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
 }

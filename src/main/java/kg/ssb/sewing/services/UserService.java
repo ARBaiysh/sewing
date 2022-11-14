@@ -44,13 +44,13 @@ public class UserService {
 
             user.setPassword(passwordEncoder.encode(password));
             if (userIn.getRole().equals("seamstress")) {
-                user.getRoles().add(ERole.ROLE_SEAMSTRESS);
+                user.setRoles(ERole.ROLE_SEAMSTRESS);
             } else if (userIn.getRole().equals("master")) {
-                user.getRoles().add(ERole.ROLE_MASTER);
+                user.setRoles(ERole.ROLE_MASTER);
             } else if (userIn.getRole().equals("masters_leader")) {
-                user.getRoles().add(ERole.ROLE_MASTERS_LEADER);
+                user.setRoles(ERole.ROLE_MASTERS_LEADER);
             } else {
-                user.getRoles().add(ERole.ROLE_NON);
+                user.setRoles(ERole.ROLE_NON);
             }
             user.setStatus(EStatus.ACTIVE);
             log.info("Saving User {}", userIn.getPersonalId());
@@ -60,6 +60,25 @@ public class UserService {
 
     public UserDTO getCurrentUser(Principal principal) {
         User user = getUserByPrincipal(principal);
+        return UserFacade.UserInUserDTO(user);
+    }
+
+    public UserDTO currentUserUpdate(Principal principal) {
+        User user = getUserByPrincipal(principal);
+
+        SignUpRequestDTO userIn = rest1CClientUser.getUserByPersonalId(user.getPersonalId()).getBody();
+        assert userIn != null;
+        user.setFullName(userIn.getFullName());
+        if (userIn.getRole().equals("seamstress")) {
+            user.setRoles(ERole.ROLE_SEAMSTRESS);
+        } else if (userIn.getRole().equals("master")) {
+            user.setRoles(ERole.ROLE_MASTER);
+        } else if (userIn.getRole().equals("masters_leader")) {
+            user.setRoles(ERole.ROLE_MASTERS_LEADER);
+        } else {
+            user.setRoles(ERole.ROLE_NON);
+        }
+        userRepository.save(user);
         return UserFacade.UserInUserDTO(user);
     }
 
