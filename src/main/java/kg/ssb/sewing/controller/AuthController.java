@@ -1,5 +1,6 @@
 package kg.ssb.sewing.controller;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import kg.ssb.sewing.dto.JWTTokenSuccessResponseDTO;
 import kg.ssb.sewing.dto.LoginRequestDTO;
 import kg.ssb.sewing.dto.SearchUserRequestDTO;
@@ -20,6 +21,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 
 @RestController
@@ -62,6 +65,10 @@ public class AuthController {
         } else {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
+    }
+    @GetMapping("/serverTime")
+    public String getTime() {
+        return LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
     }
 }
 

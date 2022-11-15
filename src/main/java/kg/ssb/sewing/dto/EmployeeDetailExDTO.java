@@ -1,36 +1,28 @@
-package kg.ssb.sewing.entity;
+package kg.ssb.sewing.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-@Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-public class EmployeeDetailExport {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class EmployeeDetailExDTO {
     private Long id;
     private String employeeUuid;
-    private String authorUuid;
+    private String authorUuidStart;
     private String positionUuid;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime startDateTime;
+    private String causeStart;
+    private String authorUuidStop;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
-    private LocalDateTime endDateTime;
+    private LocalDateTime stopDateTime;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private LocalTime workedHours;
-    private String cause;
+    private String causeStop;
     private double rating;
     private double fine;
-
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Service
-@FeignClient(value = "rest1cClientWorkplace", url = "${base1c.url}", configuration = Rest1cConfig.class)
+@FeignClient(value = "Rest1cClientWorkplace", url = "${base1c.url}", configuration = Rest1cConfig.class)
 public interface Rest1cClientWorkplace {
     @RequestMapping(method = RequestMethod.GET, value = "workplace", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<WorkplaceDTO>> getWorkplace();

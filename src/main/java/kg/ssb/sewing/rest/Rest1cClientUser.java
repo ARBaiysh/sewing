@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
-@FeignClient(value = "rest1cClientUser", url = "${base1c.url}", configuration = Rest1cConfig.class)
+@FeignClient(value = "Rest1cClientUser", url = "${base1c.url}", configuration = Rest1cConfig.class)
 public interface Rest1cClientUser {
     @RequestMapping(method = RequestMethod.GET, value = "user?personalId=", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<SignUpRequestDTO> getUserByPersonalId(@RequestParam("personalId") String personalId);

@@ -42,6 +42,10 @@ public class EmployeeService {
         return "Ok";
     }
 
+    public Employee findEmployeeByEmployeeUuid(String employeeUuid){
+        return  employeeRepository.findByUuid(employeeUuid);
+    }
+
     public List<EmployeeDTO> getEmployeesMasterUui(String masterUuid) {
         return employeeRepository.findAllByMasterUuid(masterUuid).stream().map(employee -> modelMapper.map(employee, EmployeeDTO.class)).collect(Collectors.toList());
     }
@@ -65,7 +69,7 @@ public class EmployeeService {
         employeeTransformExService.save(employeeTransformEx);
         log.info("Save employeeTransformEx current user-{}", userDTO.getPersonalId());
         employeeRepository.save(employee);
-        log.info("Save employee uuid-{}", employee.getUuid());
+        log.info("Update employee name-{}", employee.getFullName());
         return true;
     }
 }

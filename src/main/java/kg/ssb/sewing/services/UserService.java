@@ -1,17 +1,16 @@
 package kg.ssb.sewing.services;
 
+import kg.ssb.sewing.dto.LoginRequestDTO;
+import kg.ssb.sewing.dto.SignUpRequestDTO;
 import kg.ssb.sewing.dto.UserDTO;
 import kg.ssb.sewing.entity.User;
 import kg.ssb.sewing.entity.enums.ERole;
 import kg.ssb.sewing.entity.enums.EStatus;
-import kg.ssb.sewing.dto.LoginRequestDTO;
-import kg.ssb.sewing.dto.SignUpRequestDTO;
 import kg.ssb.sewing.facade.UserFacade;
 import kg.ssb.sewing.repository.UserRepository;
 import kg.ssb.sewing.rest.Rest1cClientUser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

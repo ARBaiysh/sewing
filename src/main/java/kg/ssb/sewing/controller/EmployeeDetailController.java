@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -28,12 +29,18 @@ public class EmployeeDetailController {
 
     @GetMapping("/today/{employeeUuid}")
     public ResponseEntity<List<EmployeeDetail>> getAllEmployeeDetailToDay(@PathVariable String employeeUuid) {
-        return new ResponseEntity<>(employeeDetailService.getAllEmployeeDetailsData(employeeUuid), HttpStatus.OK);
+        return new ResponseEntity<>(employeeDetailService.getAllEmployeeDetailsToDay(employeeUuid), HttpStatus.OK);
     }
 
     @PostMapping("")
-    public ResponseEntity<EmployeeDetail> saveEmployeeDetail(@RequestBody EmployeeDetailDTO employeeDetailDTO) {
-        EmployeeDetail employeeDetail = employeeDetailService.saveEmployeeDetailByEmployeeUuid(employeeDetailDTO);
+    public ResponseEntity<EmployeeDetail> saveEmployeeDetail(@RequestBody EmployeeDetailDTO employeeDetailDTO, Principal principal) {
+        EmployeeDetail employeeDetail = employeeDetailService.saveEmployeeDetail(employeeDetailDTO, principal);
         return new ResponseEntity<>(employeeDetail, HttpStatus.OK);
+    }
+
+    @GetMapping("/today/autoStop/")
+    public ResponseEntity<?> autoStopAllEmployeeDetailToday() {
+        employeeDetailService.autoStopEmployeeDetailAndEmployeeDetailEx();
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
