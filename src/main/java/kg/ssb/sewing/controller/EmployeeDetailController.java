@@ -1,6 +1,7 @@
 package kg.ssb.sewing.controller;
 
 import kg.ssb.sewing.dto.EmployeeDetailDTO;
+import kg.ssb.sewing.dto.ResponseDTO;
 import kg.ssb.sewing.entity.EmployeeDetail;
 import kg.ssb.sewing.services.EmployeeDetailService;
 import lombok.RequiredArgsConstructor;
@@ -43,4 +44,10 @@ public class EmployeeDetailController {
         employeeDetailService.autoStopEmployeeDetailAndEmployeeDetailEx();
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/today/sendTo1c/")
+    public ResponseEntity<ResponseDTO> sendAllEmployeeDetailTodayTo1c() {
+        return new ResponseEntity<>(employeeDetailService.sendEmployeeDetailToBase1c(), HttpStatus.OK);
+    }
+
 }

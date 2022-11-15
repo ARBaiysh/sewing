@@ -40,6 +40,8 @@ public class UserService {
             user.setPositionUuid(userIn.getPositionUuid());
             user.setDivision(userIn.getDivision());
             user.setDivisionUuid(userIn.getDivisionUuid());
+            user.setWorkPlace(userIn.getWorkPlace());
+            user.setWorkPlaceUuid(userIn.getWorkPlaceUuid());
 
             user.setPassword(passwordEncoder.encode(password));
             if (userIn.getRole().equals("seamstress")) {
@@ -68,6 +70,8 @@ public class UserService {
         SignUpRequestDTO userIn = rest1CClientUser.getUserByPersonalId(user.getPersonalId()).getBody();
         assert userIn != null;
         user.setFullName(userIn.getFullName());
+        user.setWorkPlace(userIn.getWorkPlace());
+        user.setWorkPlaceUuid(userIn.getWorkPlaceUuid());
         if (userIn.getRole().equals("seamstress")) {
             user.setRoles(ERole.ROLE_SEAMSTRESS);
         } else if (userIn.getRole().equals("master")) {

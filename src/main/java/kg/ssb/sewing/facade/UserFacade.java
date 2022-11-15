@@ -4,7 +4,7 @@ import kg.ssb.sewing.dto.UserDTO;
 import kg.ssb.sewing.entity.User;
 
 public class UserFacade {
-    public static UserDTO UserInUserDTO(User user){
+    public static UserDTO UserInUserDTO(User user) {
         return new UserDTO(
                 user.getId(),
                 user.getInn(),
@@ -15,6 +15,8 @@ public class UserFacade {
                 user.getPositionUuid(),
                 user.getDivision(),
                 user.getDivisionUuid(),
+                user.getWorkPlace(),
+                user.getWorkPlaceUuid(),
                 user.getRoles());
     }
 }

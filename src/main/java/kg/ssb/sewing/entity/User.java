@@ -14,9 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 
 @Getter
@@ -36,6 +34,10 @@ public class User implements UserDetails {
     private String positionUuid;
     private String division;
     private String divisionUuid;
+
+    private String workPlace;
+
+    private String workPlaceUuid;
     private String password;
     @Enumerated(value = EnumType.STRING)
     private ERole roles;

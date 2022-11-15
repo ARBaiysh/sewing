@@ -20,6 +20,8 @@ public class UserDTO {
     private String positionUuid;
     private String division;
     private String divisionUuid;
+    private String workPlace;
+    private String workPlaceUuid;
     private ERole role;
 }
 

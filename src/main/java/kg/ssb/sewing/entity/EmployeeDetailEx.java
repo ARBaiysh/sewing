@@ -26,12 +26,13 @@ public class EmployeeDetailEx {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime startDateTime;
     private String causeStart;
+    private String workPlaceUuid;
 
     private String authorUuidStop;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime stopDateTime;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
-    private LocalTime workedHours;
+    private LocalDateTime workedHours;
     private String causeStop;
     private double rating;
     private double fine;
