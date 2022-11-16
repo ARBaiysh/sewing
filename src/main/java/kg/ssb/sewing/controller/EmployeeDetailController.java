@@ -25,17 +25,25 @@ public class EmployeeDetailController {
 
     @GetMapping("/{employeeUuid}")
     public ResponseEntity<List<EmployeeDetail>> getAllEmployeeDetail(@PathVariable String employeeUuid) {
-        return new ResponseEntity<>(employeeDetailService.getAllEmployeeDetails(employeeUuid), HttpStatus.OK);
+        log.info("Start getAllEmployeeDetail employeeUuid = {}", employeeUuid);
+        List<EmployeeDetail> allEmployeeDetails = employeeDetailService.getAllEmployeeDetails(employeeUuid);
+        log.info("Finish getAllEmployeeDetail employeeUuid = {}", employeeUuid);
+        return new ResponseEntity<>(allEmployeeDetails, HttpStatus.OK);
     }
 
     @GetMapping("/today/{employeeUuid}")
     public ResponseEntity<List<EmployeeDetail>> getAllEmployeeDetailToDay(@PathVariable String employeeUuid) {
-        return new ResponseEntity<>(employeeDetailService.getAllEmployeeDetailsToDay(employeeUuid), HttpStatus.OK);
+        log.info("Start getAllEmployeeDetailToDay employeeUuid = {}", employeeUuid);
+        List<EmployeeDetail> allEmployeeDetailsToDay = employeeDetailService.getAllEmployeeDetailsToDay(employeeUuid);
+        log.info("Finish getAllEmployeeDetailToDay employeeUuid = {}", employeeUuid);
+        return new ResponseEntity<>(allEmployeeDetailsToDay, HttpStatus.OK);
     }
 
     @PostMapping("")
     public ResponseEntity<EmployeeDetail> saveEmployeeDetail(@RequestBody EmployeeDetailDTO employeeDetailDTO, Principal principal) {
+        log.info("Start saveEmployeeDetail employeeDetailDTO = {}", employeeDetailDTO.getEmployeeUuid());
         EmployeeDetail employeeDetail = employeeDetailService.saveEmployeeDetail(employeeDetailDTO, principal);
+        log.info("Finish saveEmployeeDetail employeeDetailDTO = {}", employeeDetailDTO.getEmployeeUuid());
         return new ResponseEntity<>(employeeDetail, HttpStatus.OK);
     }
 

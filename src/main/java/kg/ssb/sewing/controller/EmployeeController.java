@@ -36,13 +36,17 @@ public class EmployeeController {
 
     @GetMapping("/masterUuid/{masterUuid}")
     public ResponseEntity<List<EmployeeDTO>> getEmployeesByMasterUuid(@PathVariable String masterUuid) {
+        log.info("Start getEmployeesByMasterUuid masterUuid = {}", masterUuid);
         List<EmployeeDTO> bantDTOList = employeeService.getEmployeesMasterUui(masterUuid);
+        log.info("Finish getEmployeesByMasterUuid masterUuid = {}", masterUuid);
         return new ResponseEntity<>(bantDTOList, HttpStatus.OK);
     }
 
     @GetMapping("/workPlaceUuid/{workPlaceUuid}")
     public ResponseEntity<List<EmployeeDTO>> getEmployeesByWorkPlaceUuid(@PathVariable String workPlaceUuid) {
+        log.info("Start getEmployeesByWorkPlaceUuid workPlaceUuid = {}", workPlaceUuid);
         List<EmployeeDTO> employeeDTOS = employeeService.getEmployeesWorkPlaceUuid(workPlaceUuid);
+        log.info("Finish getEmployeesByWorkPlaceUuid workPlaceUuid = {}", workPlaceUuid);
         return new ResponseEntity<>(employeeDTOS, HttpStatus.OK);
     }
 

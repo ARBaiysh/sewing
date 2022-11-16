@@ -66,7 +66,8 @@ public class EmployeeService {
         employeeTransformEx.setCreateDateTime(LocalDateTime.now());
         employeeTransformEx.setAuthorUuid(userDTO.getUuid());
         employeeTransformEx.setWorkPlaceUuid(employee.getWorkPlaceUuid());
-        employeeTransformExService.save(employeeTransformEx);
+        employeeTransformEx.setStatusTransferIn1C(201);
+        employeeTransformExService.saveEmployeeTransformEx(employeeTransformEx);
         log.info("Save employeeTransformEx current user-{}", userDTO.getPersonalId());
         employeeRepository.save(employee);
         log.info("Update employee name-{}", employee.getFullName());

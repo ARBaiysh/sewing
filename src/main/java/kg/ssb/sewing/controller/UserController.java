@@ -26,7 +26,9 @@ public class UserController {
 
     @GetMapping("/")
     public ResponseEntity<UserDTO> getCurrentUser(Principal principal) {
+        log.info("Start getCurrentUser principal = {}", principal.getName());
         UserDTO user = userService.getCurrentUser(principal);
+        log.info("Finish getCurrentUser user name = {}", user.getFullName());
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 

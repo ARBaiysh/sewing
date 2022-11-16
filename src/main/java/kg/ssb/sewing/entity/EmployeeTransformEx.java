@@ -25,4 +25,5 @@ public class EmployeeTransformEx {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime createDateTime;
     private String authorUuid;
+    private int statusTransferIn1C;
 }
