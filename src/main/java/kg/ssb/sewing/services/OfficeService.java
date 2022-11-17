@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class OfficeService {
     private final LeaderRepository leaderRepository;
 
-    @Scheduled(fixedRate = 10_000)
+    @Scheduled(fixedRate = 5000)
     public void checkMysql() {
         leaderRepository.getOne();
     }
