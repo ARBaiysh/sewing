@@ -24,6 +24,7 @@ public class EmployeeDTO {
     private boolean hasWorkPlace;
     private String master;
     private String masterUuid;
+    private String action;
 }
 
 

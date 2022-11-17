@@ -7,12 +7,14 @@ import kg.ssb.sewing.entity.Employee;
 import kg.ssb.sewing.entity.EmployeeTransformEx;
 import kg.ssb.sewing.repository.EmployeeRepository;
 import kg.ssb.sewing.rest.Rest1cClientEmployee;
+import kg.ssb.sewing.utils.ConvertUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -42,8 +44,8 @@ public class EmployeeService {
         return "Ok";
     }
 
-    public Employee findEmployeeByEmployeeUuid(String employeeUuid){
-        return  employeeRepository.findByUuid(employeeUuid);
+    public Employee findEmployeeByEmployeeUuid(String employeeUuid) {
+        return employeeRepository.findByUuid(employeeUuid);
     }
 
     public List<EmployeeDTO> getEmployeesMasterUui(String masterUuid) {
@@ -51,7 +53,10 @@ public class EmployeeService {
     }
 
     public List<EmployeeDTO> getEmployeesWorkPlaceUuid(String workPlaceUuid) {
-        return employeeRepository.findAllByWorkPlaceUuid(workPlaceUuid).stream().map(employee -> modelMapper.map(employee, EmployeeDTO.class)).collect(Collectors.toList());
+        LocalDateTime now = LocalDateTime.now();
+        return employeeRepository.findAllByWorkPlaceUuidToday(workPlaceUuid, now.toLocalDate().atStartOfDay(), now.toLocalDate().atTime(LocalTime.MAX))
+                .stream().map(emp -> ConvertUtils.toCamelCase(emp, EmployeeDTO.class)).collect(Collectors.toList());
+
     }
 
     public boolean updateEmployeeWorkPlaceUuid(EmployeeUpdateWorkPlaceUuidDTO employeeUpdateWorkPlaceUuidDTO, UserDTO userDTO) {

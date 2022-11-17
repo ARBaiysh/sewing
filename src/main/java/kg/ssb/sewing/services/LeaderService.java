@@ -6,7 +6,6 @@ import kg.ssb.sewing.repository.LeaderRepository;
 import kg.ssb.sewing.rest.Rest1cClientLeader;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 

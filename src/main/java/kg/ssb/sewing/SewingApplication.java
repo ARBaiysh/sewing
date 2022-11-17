@@ -10,8 +10,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableFeignClients
 public class SewingApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SewingApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SewingApplication.class, args);
+    }
 
 }

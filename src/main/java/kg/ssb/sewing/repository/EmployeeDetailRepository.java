@@ -10,7 +10,6 @@ import java.util.List;
 @Repository
 public interface EmployeeDetailRepository extends JpaRepository<EmployeeDetail, Long> {
 
-    boolean existsEmployeeDetailByEmployeeUuid(String employeeUuid);
 
     EmployeeDetail findFirstByOrderByIdDesc();
 

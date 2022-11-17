@@ -2,7 +2,6 @@ package kg.ssb.sewing.controller;
 
 import kg.ssb.sewing.dto.EmployeeDTO;
 import kg.ssb.sewing.dto.EmployeeUpdateWorkPlaceUuidDTO;
-import kg.ssb.sewing.dto.LoginRequestDTO;
 import kg.ssb.sewing.dto.UserDTO;
 import kg.ssb.sewing.services.EmployeeService;
 import kg.ssb.sewing.services.UserService;

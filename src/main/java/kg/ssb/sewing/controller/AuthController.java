@@ -1,6 +1,5 @@
 package kg.ssb.sewing.controller;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import kg.ssb.sewing.dto.JWTTokenSuccessResponseDTO;
 import kg.ssb.sewing.dto.LoginRequestDTO;
 import kg.ssb.sewing.dto.SearchUserRequestDTO;

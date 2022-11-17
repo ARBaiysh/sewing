@@ -13,7 +13,7 @@ public class OfficeService {
     private final LeaderRepository leaderRepository;
 
     @Scheduled(fixedRate = 10_000)
-    public void checkMysql(){
+    public void checkMysql() {
         leaderRepository.getOne();
     }
 }
