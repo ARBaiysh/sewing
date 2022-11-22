@@ -104,9 +104,10 @@ public class EmployeeDetailService {
     }
 
     public void autoStopEmployeeDetailAndEmployeeDetailEx() {
-        log.info("Auto start finish");
+        log.info("Start autostop");
         autoStopEmployeeDetailEx(findEmployeeDetailExToDay());
-        log.info("Auto stop finish");
+        log.info("Finish to autostop");
+        sendEmployeeDetailToBase1c();
     }
 
     public ResponseDTO sendEmployeeDetailToBase1c() {

@@ -9,6 +9,7 @@ public class Rest1cConfig {
     String username;
     @Value("${base1c.password}")
     String password;
+
     @Bean
     public BasicAuthRequestInterceptor basicAuthRequestInterceptor() {
         return new BasicAuthRequestInterceptor(username, password);
