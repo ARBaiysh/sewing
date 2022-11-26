@@ -1,5 +1,8 @@
 package kg.ssb.sewing.controller;
 
+import kg.ssb.sewing.dto.CutterDTO;
+import kg.ssb.sewing.dto.EmployeeDetailDTO;
+import kg.ssb.sewing.entity.EmployeeDetail;
 import kg.ssb.sewing.rest.Rest1cClientCutter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -7,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/cutter")
@@ -26,4 +31,14 @@ public class CutterController {
         log.info("Finish getCutterByUserUuid response status-{}", cutterByUserUuid.getStatusCode());
         return new ResponseEntity<>(cutterByUserUuid.getBody(), HttpStatus.OK);
     }
+
+    @PostMapping()
+    public ResponseEntity<Object> setQRCodeTo1c(@RequestBody CutterDTO cutterDTO, Principal principal) {
+        log.info("Start setQRCodeTo1c = {} user {}", cutterDTO.getQrCode(), principal.getName());
+        ResponseEntity<Object> objectResponseEntity = rest1cClientCutter.setORCodeTo1c(cutterDTO);
+        log.info("Finish setQRCodeTo1c response code -{}", objectResponseEntity.getStatusCode());
+        return new ResponseEntity<>(objectResponseEntity.getBody(), HttpStatus.OK);
+    }
+
+
 }
