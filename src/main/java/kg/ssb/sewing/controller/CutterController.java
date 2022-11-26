@@ -19,8 +19,8 @@ public class CutterController {
     private final Rest1cClientCutter rest1cClientCutter;
 
 
-    @GetMapping("/{storehouseId}")
-    public ResponseEntity<Object> getCutterByStorehouseId(@PathVariable String storehouseId) {
-        return new ResponseEntity<>(rest1cClientCutter.getCutterByStorehouseId(storehouseId).getBody(), HttpStatus.OK);
+    @GetMapping("/{userUuid}")
+    public ResponseEntity<Object> getCutterByStorehouseId(@PathVariable String userUuid) {
+        return new ResponseEntity<>(rest1cClientCutter.getCutterByUserUuid(userUuid).getBody(), HttpStatus.OK);
     }
 }
