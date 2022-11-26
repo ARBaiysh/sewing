@@ -44,15 +44,7 @@ public class UserService {
             user.setWorkPlaceUuid(userIn.getWorkPlaceUuid());
 
             user.setPassword(passwordEncoder.encode(password));
-            if (userIn.getRole().equals("seamstress")) {
-                user.setRoles(ERole.ROLE_SEAMSTRESS);
-            } else if (userIn.getRole().equals("master")) {
-                user.setRoles(ERole.ROLE_MASTER);
-            } else if (userIn.getRole().equals("masters_leader")) {
-                user.setRoles(ERole.ROLE_MASTERS_LEADER);
-            } else {
-                user.setRoles(ERole.ROLE_NON);
-            }
+            this.setUserRole(user, userIn);
             user.setStatus(EStatus.ACTIVE);
             log.info("Saving User {}", userIn.getPersonalId());
             userRepository.save(user);
@@ -72,17 +64,29 @@ public class UserService {
         user.setFullName(userIn.getFullName());
         user.setWorkPlace(userIn.getWorkPlace());
         user.setWorkPlaceUuid(userIn.getWorkPlaceUuid());
-        if (userIn.getRole().equals("seamstress")) {
-            user.setRoles(ERole.ROLE_SEAMSTRESS);
-        } else if (userIn.getRole().equals("master")) {
-            user.setRoles(ERole.ROLE_MASTER);
-        } else if (userIn.getRole().equals("masters_leader")) {
-            user.setRoles(ERole.ROLE_MASTERS_LEADER);
-        } else {
-            user.setRoles(ERole.ROLE_NON);
-        }
+        this.setUserRole(user, userIn);
         userRepository.save(user);
         return UserFacade.UserInUserDTO(user);
+    }
+
+    private void setUserRole(User user, SignUpRequestDTO userIn) {
+        switch (userIn.getRole()) {
+            case "seamstress":
+                user.setRoles(ERole.ROLE_SEAMSTRESS);
+                break;
+            case "master":
+                user.setRoles(ERole.ROLE_MASTER);
+                break;
+            case "masters_leader":
+                user.setRoles(ERole.ROLE_MASTERS_LEADER);
+                break;
+            case "headOfCutting":
+                user.setRoles(ERole.ROLE_HEAD_OF_CUTTING);
+                break;
+            default:
+                user.setRoles(ERole.ROLE_NON);
+                break;
+        }
     }
 
     private User getUserByPrincipal(Principal principal) {
