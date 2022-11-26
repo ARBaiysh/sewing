@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/cutter")
 @Slf4j
 @RequiredArgsConstructor
-@PreAuthorize(value = "hasAnyRole('MASTER','SEAMSTRESS','MASTERS_LEADER')")
+@PreAuthorize(value = "hasAnyRole('MASTER','SEAMSTRESS','MASTERS_LEADER','ROLE_HEAD_OF_CUTTING')")
 @CrossOrigin
 public class CutterController {
 
@@ -20,7 +20,10 @@ public class CutterController {
 
 
     @GetMapping("/{userUuid}")
-    public ResponseEntity<Object> getCutterByStorehouseId(@PathVariable String userUuid) {
-        return new ResponseEntity<>(rest1cClientCutter.getCutterByUserUuid(userUuid).getBody(), HttpStatus.OK);
+    public ResponseEntity<Object> getCutterByUserUuid(@PathVariable String userUuid) {
+        log.info("Start getCutterByUserUuid-{}", userUuid);
+        ResponseEntity<Object> cutterByUserUuid = rest1cClientCutter.getCutterByUserUuid(userUuid);
+        log.info("Finish getCutterByUserUuid response status-{}", cutterByUserUuid.getStatusCode());
+        return new ResponseEntity<>(cutterByUserUuid.getBody(), HttpStatus.OK);
     }
 }
