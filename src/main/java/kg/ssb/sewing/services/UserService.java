@@ -42,9 +42,8 @@ public class UserService {
             user.setDivisionUuid(userIn.getDivisionUuid());
             user.setWorkPlace(userIn.getWorkPlace());
             user.setWorkPlaceUuid(userIn.getWorkPlaceUuid());
-
             user.setPassword(passwordEncoder.encode(password));
-            this.setUserRole(user, userIn);
+            user.setRoles(this.setUserRole(userIn.getRole()));
             user.setStatus(EStatus.ACTIVE);
             log.info("Saving User {}", userIn.getPersonalId());
             userRepository.save(user);
@@ -64,28 +63,23 @@ public class UserService {
         user.setFullName(userIn.getFullName());
         user.setWorkPlace(userIn.getWorkPlace());
         user.setWorkPlaceUuid(userIn.getWorkPlaceUuid());
-        this.setUserRole(user, userIn);
+        user.setRoles(this.setUserRole(userIn.getRole()));
         userRepository.save(user);
         return UserFacade.UserInUserDTO(user);
     }
 
-    private void setUserRole(User user, SignUpRequestDTO userIn) {
-        switch (userIn.getRole()) {
+    private ERole setUserRole(String role) {
+        switch (role) {
             case "seamstress":
-                user.setRoles(ERole.ROLE_SEAMSTRESS);
-                break;
+                return ERole.ROLE_SEAMSTRESS;
             case "master":
-                user.setRoles(ERole.ROLE_MASTER);
-                break;
+                return ERole.ROLE_MASTER;
             case "masters_leader":
-                user.setRoles(ERole.ROLE_MASTERS_LEADER);
-                break;
+                return ERole.ROLE_MASTERS_LEADER;
             case "headOfCutting":
-                user.setRoles(ERole.ROLE_HEAD_OF_CUTTING);
-                break;
+                return ERole.ROLE_HEAD_OF_CUTTING;
             default:
-                user.setRoles(ERole.ROLE_NON);
-                break;
+                return ERole.ROLE_NON;
         }
     }
 
