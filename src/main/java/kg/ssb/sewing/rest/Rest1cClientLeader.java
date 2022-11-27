@@ -16,4 +16,7 @@ import java.util.List;
 public interface Rest1cClientLeader {
     @RequestMapping(method = RequestMethod.GET, value = "leaders", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<LeaderDto>> get();
+
+    @RequestMapping(method = RequestMethod.GET, value = "echo", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<String> getEcho();
 }

@@ -16,7 +16,7 @@ public class OfficeService {
     @Scheduled(fixedRate = 15000)
     private void check1sBases() {
         try {
-            rest1cClientLeader.get();
+            rest1cClientLeader.getEcho();
         } catch (FeignException ex) {
             log.error("Error massage {}", ex.getMessage());
         }

@@ -55,6 +55,12 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeService.getAllTo1c(), HttpStatus.OK);
     }
 
+    @GetMapping("/check")
+    public ResponseEntity<String> check() {
+        employeeService.checkEmployeesFromTheBase1c();
+        return new ResponseEntity<>("ok", HttpStatus.OK);
+    }
+
 
     @PostMapping("/update")
     public ResponseEntity<Boolean> updateEmployeeWorkPlaceUuid(@Valid @RequestBody EmployeeUpdateWorkPlaceUuidDTO employeeUpdateWorkPlaceUuidDTO, Principal principal) {

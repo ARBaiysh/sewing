@@ -11,6 +11,7 @@ import kg.ssb.sewing.utils.ConvertUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -31,17 +32,52 @@ public class EmployeeService {
     public void saveEmployee(List<EmployeeDTO> employeeDTOList) {
         List<Employee> employeeList = employeeDTOList.stream().map(employeeDTO -> modelMapper.map(employeeDTO, Employee.class)).collect(Collectors.toList());
         employeeRepository.saveAll(employeeList);
-        log.info("save employee total {}", employeeList.size());
+        log.info("Save employee total {}", employeeList.size());
     }
 
     public List<EmployeeDTO> getAll() {
-        return employeeRepository.findAll().stream()
-                .map(employee -> modelMapper.map(employee, EmployeeDTO.class)).collect(Collectors.toList());
+        return employeeRepository.findAll().stream().map(employee -> modelMapper.map(employee, EmployeeDTO.class)).collect(Collectors.toList());
     }
 
     public String getAllTo1c() {
         saveEmployee(Objects.requireNonNull(rest1CClientEmployee.getAllEmployees().getBody()));
         return "Ok";
+    }
+
+    private void saveEmployee(EmployeeDTO employeeDTO) {
+        Employee employee = employeeRepository.save(modelMapper.map(employeeDTO, Employee.class));
+        log.info("Add new employee uuid - {}", employee.getUuid());
+    }
+
+    @Scheduled(cron = "0 15 20 * * *")
+    public void checkEmployeesFromTheBase1c() {
+        log.info("Start check employees from the base1c");
+        List<EmployeeDTO> employeeDTOS = Objects.requireNonNull(rest1CClientEmployee.getAllEmployees().getBody());
+        employeeDTOS.forEach(employeeDTO -> {
+            if (employeeRepository.existsByUuid(employeeDTO.getUuid())) {
+                Employee employee = employeeRepository.findByUuid(employeeDTO.getUuid());
+                if (!employeeDTO.equals(modelMapper.map(employee, EmployeeDTO.class))) {
+                    employee.setInn(employeeDTO.getInn());
+                    employee.setPersonalId(employeeDTO.getPersonalId());
+                    employee.setDateOfBirth(employeeDTO.getDateOfBirth());
+                    employee.setFullName(employeeDTO.getFullName());
+                    employee.setResidence(employeeDTO.getResidence());
+                    employee.setPlaceOfRegistration(employeeDTO.getPlaceOfRegistration());
+                    employee.setPosition(employeeDTO.getPosition());
+                    employee.setPositionUuid(employeeDTO.getPositionUuid());
+                    employee.setWorkPlace(employeeDTO.getWorkPlace());
+                    employee.setWorkPlaceUuid(employeeDTO.getWorkPlaceUuid());
+                    employee.setHasWorkPlace(employeeDTO.isHasWorkPlace());
+                    employee.setMaster(employeeDTO.getMaster());
+                    employee.setMasterUuid(employeeDTO.getMasterUuid());
+                    employeeRepository.save(employee);
+                    log.info("Updated employee from base1c, employee uuid - {}", employee.getUuid());
+                }
+            } else {
+                saveEmployee(employeeDTO);
+            }
+        });
+        log.info("Finish check employees from the base1c");
     }
 
     public Employee findEmployeeByEmployeeUuid(String employeeUuid) {
@@ -54,8 +90,7 @@ public class EmployeeService {
 
     public List<EmployeeDTO> getEmployeesWorkPlaceUuid(String workPlaceUuid) {
         LocalDateTime now = LocalDateTime.now();
-        return employeeRepository.findAllByWorkPlaceUuidToday(workPlaceUuid, now.toLocalDate().atStartOfDay(), now.toLocalDate().atTime(LocalTime.MAX))
-                .stream().map(emp -> ConvertUtils.toCamelCase(emp, EmployeeDTO.class)).collect(Collectors.toList());
+        return employeeRepository.findAllByWorkPlaceUuidToday(workPlaceUuid, now.toLocalDate().atStartOfDay(), now.toLocalDate().atTime(LocalTime.MAX)).stream().map(emp -> ConvertUtils.toCamelCase(emp, EmployeeDTO.class)).collect(Collectors.toList());
 
     }
 
