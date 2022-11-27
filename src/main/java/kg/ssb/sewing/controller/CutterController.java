@@ -1,8 +1,6 @@
 package kg.ssb.sewing.controller;
 
 import kg.ssb.sewing.dto.CutterDTO;
-import kg.ssb.sewing.dto.EmployeeDetailDTO;
-import kg.ssb.sewing.entity.EmployeeDetail;
 import kg.ssb.sewing.rest.Rest1cClientCutter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -39,6 +37,4 @@ public class CutterController {
         log.info("Finish setQRCodeTo1c response code -{}", objectResponseEntity.getStatusCode());
         return new ResponseEntity<>(objectResponseEntity.getBody(), HttpStatus.OK);
     }
-
-
 }

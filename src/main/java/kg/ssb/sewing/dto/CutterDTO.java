@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class CutterDTO {
     private String qrCode;
     private String userUuid;
-
 }
 
 

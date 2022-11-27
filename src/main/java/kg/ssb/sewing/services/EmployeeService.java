@@ -44,10 +44,6 @@ public class EmployeeService {
         return "Ok";
     }
 
-    private void saveEmployeeDTO(EmployeeDTO employeeDTO) {
-        employeeRepository.save(modelMapper.map(employeeDTO, Employee.class));
-        log.info("Add new employee uuid - {}", employeeDTO.getUuid());
-    }
 
     @Scheduled(cron = "0 15 20 * * *")
     public void checkEmployeesFromTheBase1c() {
@@ -74,7 +70,8 @@ public class EmployeeService {
                     log.info("Updated employee from base1c, employee uuid - {}", employee.getUuid());
                 }
             } else {
-                saveEmployeeDTO(employeeDTO);
+                employeeRepository.save(modelMapper.map(employeeDTO, Employee.class));
+                log.info("Add new employee uuid - {}", employeeDTO.getUuid());
             }
         });
         log.info("Finish check employees from the base1c");
