@@ -29,7 +29,7 @@ public class EmployeeService {
     private final EmployeeTransformExService employeeTransformExService;
     private final ModelMapper modelMapper;
 
-    public void saveEmployee(List<EmployeeDTO> employeeDTOList) {
+    public void saveEmployeeDTO(List<EmployeeDTO> employeeDTOList) {
         List<Employee> employeeList = employeeDTOList.stream().map(employeeDTO -> modelMapper.map(employeeDTO, Employee.class)).collect(Collectors.toList());
         employeeRepository.saveAll(employeeList);
         log.info("Save employee total {}", employeeList.size());
@@ -40,13 +40,13 @@ public class EmployeeService {
     }
 
     public String getAllTo1c() {
-        saveEmployee(Objects.requireNonNull(rest1CClientEmployee.getAllEmployees().getBody()));
+        saveEmployeeDTO(Objects.requireNonNull(rest1CClientEmployee.getAllEmployees().getBody()));
         return "Ok";
     }
 
-    private void saveEmployee(EmployeeDTO employeeDTO) {
-        Employee employee = employeeRepository.save(modelMapper.map(employeeDTO, Employee.class));
-        log.info("Add new employee uuid - {}", employee.getUuid());
+    private void saveEmployeeDTO(EmployeeDTO employeeDTO) {
+        employeeRepository.save(modelMapper.map(employeeDTO, Employee.class));
+        log.info("Add new employee uuid - {}", employeeDTO.getUuid());
     }
 
     @Scheduled(cron = "0 15 20 * * *")
@@ -74,7 +74,7 @@ public class EmployeeService {
                     log.info("Updated employee from base1c, employee uuid - {}", employee.getUuid());
                 }
             } else {
-                saveEmployee(employeeDTO);
+                saveEmployeeDTO(employeeDTO);
             }
         });
         log.info("Finish check employees from the base1c");
