@@ -25,6 +25,9 @@ public interface Rest1cClientCutter {
     @RequestMapping(method = RequestMethod.POST, value = "cutter", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<Object> setORCodeTo1c(@RequestBody CutterDTO cutterDTO);
 
+    @RequestMapping(method = RequestMethod.POST, value = "cutter/cut", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<Object> setCutTo1c(@RequestBody Object object);
+
 
 
 }

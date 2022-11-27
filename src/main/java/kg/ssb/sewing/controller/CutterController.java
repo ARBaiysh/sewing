@@ -37,4 +37,12 @@ public class CutterController {
         log.info("Finish setQRCodeTo1c response code -{}", objectResponseEntity.getStatusCode());
         return new ResponseEntity<>(objectResponseEntity.getBody(), HttpStatus.OK);
     }
+
+    @PostMapping("/cut")
+    public ResponseEntity<Object> setCutTo1c(@RequestBody Object object, Principal principal) {
+        log.info("Start setCutTo1c user {}", principal.getName());
+        ResponseEntity<Object> objectResponseEntity = rest1cClientCutter.setCutTo1c(object);
+        log.info("Finish setCutTo1c response code -{}", objectResponseEntity.getStatusCode());
+        return new ResponseEntity<>(objectResponseEntity.getBody(), HttpStatus.OK);
+    }
 }
