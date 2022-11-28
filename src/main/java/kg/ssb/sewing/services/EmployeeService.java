@@ -70,10 +70,22 @@ public class EmployeeService {
                     log.info("Updated employee from base1c, employee uuid - {}", employee.getUuid());
                 }
             } else {
-                employeeRepository.save(modelMapper.map(employeeDTO, Employee.class));
-                log.info("Add new employee uuid - {}", employeeDTO.getUuid());
+                Employee employee = modelMapper.map(employeeDTO, Employee.class);
+                Employee save = employeeRepository.save(employee);
+                log.info("Add new employee id - {} uuid - {}", save.getId(), save.getUuid());
             }
         });
+
+        List<Employee> employeeList = employeeRepository.findAll();
+        employeeList.forEach(employee -> {
+            EmployeeDTO employeeDTO = modelMapper.map(employee, EmployeeDTO.class);
+            if (!employeeDTOS.contains(employeeDTO)) {
+                employeeRepository.delete(employee);
+                log.info("Remove an employee from the database, employee uuid - {}", employee.getUuid());
+            }
+
+        });
+
         log.info("Finish check employees from the base1c");
     }
 
