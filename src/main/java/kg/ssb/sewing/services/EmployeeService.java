@@ -72,7 +72,7 @@ public class EmployeeService {
             } else {
                 Employee employee = modelMapper.map(employeeDTO, Employee.class);
                 Employee save = employeeRepository.save(employee);
-                log.info("Add new employee id - {} uuid - {}", save.getId(), save.getUuid());
+                log.info("Add new employee id - {} uuid - {} tabel {}", save.getId(), save.getUuid(), save.getPersonalId());
             }
         });
 
