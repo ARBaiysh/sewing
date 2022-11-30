@@ -14,7 +14,7 @@ public class AutoSendTo1cService {
     private final LeaderService leaderService;
     private final EmployeeTransformExService employeeTransformExService;
 
-    @Scheduled(cron = "0 * * * *")
+    @Scheduled(cron = "0 0 0/1 * * ?")
     private void sentAllTo1c() {
         employeeTransformExService.sendTo1cEmployeeTransformEx();
         employeeService.checkEmployeesFromTheBase1c();
