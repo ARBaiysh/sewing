@@ -23,7 +23,7 @@ public class LeaderService {
     private final Rest1cClientLeader rest1cClientLeader;
     private final ModelMapper modelMapper;
 
-    @Scheduled(cron = "0 15 20 * * *")
+
     public String checkLeadersFromTheBase1c() {
         log.info("Start check leaders from the base1c");
         List<LeaderDto> leaderDtos = Objects.requireNonNull(rest1cClientLeader.get().getBody());
