@@ -23,7 +23,7 @@ public class LeaderController {
 
     @GetMapping("/save")
     public ResponseEntity<String> saveLeader() {
-        return new ResponseEntity<>(leaderService.saveLeader(), HttpStatus.OK);
+        return new ResponseEntity<>(leaderService.checkLeadersFromTheBase1c(), HttpStatus.OK);
     }
 
     @GetMapping()

@@ -11,6 +11,10 @@ import java.util.List;
 public interface LeaderRepository extends JpaRepository<Leader, Long> {
     List<Leader> findAllByLeaderUuid(String leaderUuid);
 
+    boolean existsByWorkPlaceUuid(String workPlaceUuid);
+
+    Leader findByWorkPlaceUuid(String workPlaceUuid);
+
     @Query(nativeQuery = true, value = "SELECT 1")
     int getOne();
 }

@@ -45,7 +45,7 @@ public class EmployeeService {
     }
 
 
-    @Scheduled(cron = "0 15 20 * * *")
+    @Scheduled(cron = "0 10 20 * * *")
     public void checkEmployeesFromTheBase1c() {
         log.info("Start check employees from the base1c");
         List<EmployeeDTO> employeeDTOS = Objects.requireNonNull(rest1CClientEmployee.getAllEmployees().getBody());
