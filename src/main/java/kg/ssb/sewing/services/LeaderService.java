@@ -24,7 +24,7 @@ public class LeaderService {
     private final ModelMapper modelMapper;
 
 
-    public String checkLeadersFromTheBase1c() {
+    public void checkLeadersFromTheBase1c() {
         log.info("Start check leaders from the base1c");
         List<LeaderDto> leaderDtos = Objects.requireNonNull(rest1cClientLeader.get().getBody());
         leaderDtos.forEach(leaderDto -> {
@@ -61,7 +61,6 @@ public class LeaderService {
             }
         });
         log.info("Finish check leaders from the base1c");
-        return "ok";
     }
 
 

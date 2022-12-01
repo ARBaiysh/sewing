@@ -18,13 +18,7 @@ import java.util.List;
 @PreAuthorize(value = "hasAnyRole('MASTER','SEAMSTRESS','MASTERS_LEADER','ROLE_HEAD_OF_CUTTING')")
 @CrossOrigin
 public class LeaderController {
-
     private final LeaderService leaderService;
-
-    @GetMapping("/save")
-    public ResponseEntity<String> saveLeader() {
-        return new ResponseEntity<>(leaderService.checkLeadersFromTheBase1c(), HttpStatus.OK);
-    }
 
     @GetMapping()
     public ResponseEntity<List<LeaderDto>> getLeaders() {

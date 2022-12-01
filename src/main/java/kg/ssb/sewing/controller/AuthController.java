@@ -45,7 +45,6 @@ public class AuthController {
                 loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = SecurityConstants.TOKEN_PREFIX + jwtTokenProvider.generateToken(authentication);
-
         return ResponseEntity.ok(new JWTTokenSuccessResponseDTO(userService.getUserPasswordUnDefault(loginRequest.getUsername()), jwt));
     }
 
@@ -65,6 +64,7 @@ public class AuthController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
     }
+
     @GetMapping("/serverTime")
     public String getTime() {
         return LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));

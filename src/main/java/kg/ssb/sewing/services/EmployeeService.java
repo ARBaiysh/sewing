@@ -39,11 +39,6 @@ public class EmployeeService {
         return employeeRepository.findAll().stream().map(employee -> modelMapper.map(employee, EmployeeDTO.class)).collect(Collectors.toList());
     }
 
-    public String getAllTo1c() {
-        saveEmployeeDTO(Objects.requireNonNull(rest1CClientEmployee.getAllEmployees().getBody()));
-        return "Ok";
-    }
-
 
     public void checkEmployeesFromTheBase1c() {
         log.info("Start check employees from the base1c");

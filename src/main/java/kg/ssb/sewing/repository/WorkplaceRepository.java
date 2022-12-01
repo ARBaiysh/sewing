@@ -11,4 +11,6 @@ import java.util.List;
 public interface WorkplaceRepository extends JpaRepository<Workplace, Long> {
 
     List<Workplace> findAllByMasterUuid(String masterUuid);
+    Workplace findByWorkPlaceUuid(String workPlaceUuid);
+    boolean existsByWorkPlaceUuid(String workPlaceUuid);
 }

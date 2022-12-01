@@ -12,12 +12,14 @@ import org.springframework.stereotype.Service;
 public class AutoSendTo1cService {
     private final EmployeeService employeeService;
     private final LeaderService leaderService;
+    private final WorkplaceService workplaceService;
     private final EmployeeTransformExService employeeTransformExService;
 
     @Scheduled(cron = "0 0 * * * ?")
-    private void sentAllTo1c() {
+    public void sentAllTo1c() {
         employeeTransformExService.sendTo1cEmployeeTransformEx();
         employeeService.checkEmployeesFromTheBase1c();
         leaderService.checkLeadersFromTheBase1c();
+        workplaceService.checkWorkplaceFromTheBase1c();
     }
 }

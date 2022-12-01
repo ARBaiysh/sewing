@@ -49,12 +49,6 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeDTOS, HttpStatus.OK);
     }
 
-
-    @GetMapping("/save")
-    public ResponseEntity<String> saveAllEmployee() {
-        return new ResponseEntity<>(employeeService.getAllTo1c(), HttpStatus.OK);
-    }
-
     @GetMapping("/check")
     public ResponseEntity<String> check() {
         employeeService.checkEmployeesFromTheBase1c();

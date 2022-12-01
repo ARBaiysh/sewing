@@ -25,10 +25,34 @@ public class WorkplaceService {
         return workplaceRepository.findAll().stream().map(workplace -> modelMapper.map(workplace, WorkplaceDTO.class)).collect(Collectors.toList());
     }
 
-    public String saveWorkplace() {
-        List<WorkplaceDTO> body = Objects.requireNonNull(rest1cClientWorkplace.getWorkplace().getBody());
-        workplaceRepository.saveAll(body.stream().map(workplace -> modelMapper.map(workplace, Workplace.class)).collect(Collectors.toList()));
-        return "ok total -" + body.size();
+    public void checkWorkplaceFromTheBase1c() {
+        log.info("Start check workplace from the base1c");
+        List<WorkplaceDTO> workplaceDTOS = Objects.requireNonNull(rest1cClientWorkplace.getWorkplace().getBody());
+        workplaceDTOS.forEach(workplaceDTO -> {
+            if (workplaceRepository.existsByWorkPlaceUuid(workplaceDTO.getWorkPlaceUuid())) {
+                Workplace workplace = workplaceRepository.findByWorkPlaceUuid(workplaceDTO.getWorkPlaceUuid());
+                if (!workplaceDTO.equals(modelMapper.map(workplace, WorkplaceDTO.class))) {
+                    workplace.setWorkPlace(workplaceDTO.getWorkPlace());
+                    workplace.setMaster(workplaceDTO.getMaster());
+                    workplace.setMasterUuid(workplaceDTO.getMasterUuid());
+                    workplaceRepository.save(workplace);
+                    log.info("Updated workplace from base1c, workplace uuid - {}", workplace.getWorkPlaceUuid());
+                }
+            } else {
+                Workplace workplace = modelMapper.map(workplaceDTO, Workplace.class);
+                Workplace newWorkplace = workplaceRepository.save(workplace);
+                log.info("Add new workplace id - {} uuid - {}", newWorkplace.getId(), newWorkplace.getWorkPlaceUuid());
+            }
+        });
+        List<Workplace> workplaceList = workplaceRepository.findAll();
+        workplaceList.forEach(workplace -> {
+            WorkplaceDTO workplaceDTO = modelMapper.map(workplace, WorkplaceDTO.class);
+            if (!workplaceDTOS.contains(workplaceDTO)) {
+                workplaceRepository.delete(workplace);
+                log.info("Remove an workplace from the database, workplace uuid - {}", workplace.getMasterUuid());
+            }
+        });
+        log.info("Finish check workplace from the base1c");
     }
 
     public List<WorkplaceDTO> findAllWorkplaceByMasterUuid(String masterUuid) {

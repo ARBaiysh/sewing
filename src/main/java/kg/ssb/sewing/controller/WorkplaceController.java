@@ -30,10 +30,4 @@ public class WorkplaceController {
     public ResponseEntity<List<WorkplaceDTO>> findAllWorkplaceByMasterUuid(@PathVariable String masterUuid) {
         return new ResponseEntity<>(workplaceService.findAllWorkplaceByMasterUuid(masterUuid), HttpStatus.OK);
     }
-
-
-    @GetMapping("/save")
-    public ResponseEntity<String> saveWorkplace() {
-        return new ResponseEntity<>(workplaceService.saveWorkplace(), HttpStatus.OK);
-    }
 }
