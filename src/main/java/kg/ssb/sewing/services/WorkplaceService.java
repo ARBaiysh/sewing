@@ -30,4 +30,8 @@ public class WorkplaceService {
         workplaceRepository.saveAll(body.stream().map(workplace -> modelMapper.map(workplace, Workplace.class)).collect(Collectors.toList()));
         return "ok total -" + body.size();
     }
+
+    public List<WorkplaceDTO> findAllWorkplaceByMasterUuid(String masterUuid) {
+        return workplaceRepository.findAllByMasterUuid(masterUuid);
+    }
 }
