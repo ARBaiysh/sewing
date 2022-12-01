@@ -32,6 +32,6 @@ public class WorkplaceService {
     }
 
     public List<WorkplaceDTO> findAllWorkplaceByMasterUuid(String masterUuid) {
-        return workplaceRepository.findAllByMasterUuid(masterUuid);
+        return workplaceRepository.findAllByMasterUuid(masterUuid).stream().map(workplace -> modelMapper.map(workplace, WorkplaceDTO.class)).collect(Collectors.toList());
     }
 }

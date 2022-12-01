@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface WorkplaceRepository extends JpaRepository<Workplace, Long> {
 
-    List<WorkplaceDTO> findAllByMasterUuid(String masterUuid);
+    List<Workplace> findAllByMasterUuid(String masterUuid);
 }
