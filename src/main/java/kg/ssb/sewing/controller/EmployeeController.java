@@ -20,7 +20,7 @@ import java.util.List;
 @RequestMapping("/api/employee")
 @Slf4j
 @RequiredArgsConstructor
-@PreAuthorize(value = "hasAnyRole('MASTER','SEAMSTRESS','MASTERS_LEADER','ROLE_HEAD_OF_CUTTING')")
+@PreAuthorize(value = "hasAnyRole('MASTER','SEAMSTRESS','MASTERS_LEADER','ROLE_HEAD_OF_CUTTING','ROLE_CONTROLLER','ROLE_PRINTER')")
 @CrossOrigin
 public class EmployeeController {
 

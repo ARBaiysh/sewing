@@ -78,6 +78,10 @@ public class UserService {
                 return ERole.ROLE_MASTERS_LEADER;
             case "headOfCutting":
                 return ERole.ROLE_HEAD_OF_CUTTING;
+            case "printer":
+                return ERole.ROLE_PRINTER;
+            case "controller":
+                return ERole.ROLE_CONTROLLER;
             default:
                 return ERole.ROLE_NON;
         }
