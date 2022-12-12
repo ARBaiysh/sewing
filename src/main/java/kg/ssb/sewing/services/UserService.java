@@ -70,17 +70,17 @@ public class UserService {
 
     private ERole setUserRole(String role) {
         switch (role) {
-            case "seamstress":
+            case "ROLE_SEAMSTRESS":
                 return ERole.ROLE_SEAMSTRESS;
-            case "master":
+            case "ROLE_MASTER":
                 return ERole.ROLE_MASTER;
-            case "masters_leader":
+            case "ROLE_MASTERS_LEADER":
                 return ERole.ROLE_MASTERS_LEADER;
-            case "headOfCutting":
+            case "ROLE_HEAD_OF_CUTTING":
                 return ERole.ROLE_HEAD_OF_CUTTING;
-            case "printer":
+            case "ROLE_PRINTER":
                 return ERole.ROLE_PRINTER;
-            case "controller":
+            case "ROLE_CONTROLLER":
                 return ERole.ROLE_CONTROLLER;
             default:
                 return ERole.ROLE_NON;
