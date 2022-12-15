@@ -11,7 +11,6 @@ import kg.ssb.sewing.utils.ConvertUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -29,11 +28,6 @@ public class EmployeeService {
     private final EmployeeTransformExService employeeTransformExService;
     private final ModelMapper modelMapper;
 
-    public void saveEmployeeDTO(List<EmployeeDTO> employeeDTOList) {
-        List<Employee> employeeList = employeeDTOList.stream().map(employeeDTO -> modelMapper.map(employeeDTO, Employee.class)).collect(Collectors.toList());
-        employeeRepository.saveAll(employeeList);
-        log.info("Save employee total {}", employeeList.size());
-    }
 
     public List<EmployeeDTO> getAll() {
         return employeeRepository.findAll().stream().map(employee -> modelMapper.map(employee, EmployeeDTO.class)).collect(Collectors.toList());
