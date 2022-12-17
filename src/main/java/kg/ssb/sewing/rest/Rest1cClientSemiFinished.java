@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(value = "Rest1cClientSemiFinished", url = "${base1c.url}", configuration = Rest1cConfig.class)
 public interface Rest1cClientSemiFinished {
     @RequestMapping(method = RequestMethod.GET, value = "semi_finished?userUuid&role", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<Object> getSemiFinished(@RequestParam String userUuid,
-                                           @RequestParam String role);
+    ResponseEntity<Object> getSemiFinished(@RequestParam String userUuid, @RequestParam String role);
 
     @RequestMapping(method = RequestMethod.POST, value = "semi_finished", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<Object> postSemiFinished(@RequestBody Object object);

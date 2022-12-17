@@ -82,6 +82,8 @@ public class UserService {
                 return ERole.ROLE_PRINTER;
             case "ROLE_CONTROLLER":
                 return ERole.ROLE_CONTROLLER;
+            case "ROLE_PACKER":
+                return ERole.ROLE_PACKER;
             default:
                 return ERole.ROLE_NON;
         }

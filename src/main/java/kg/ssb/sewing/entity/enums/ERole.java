@@ -9,4 +9,6 @@ public enum ERole {
     ROLE_HEAD_OF_CUTTING,
     ROLE_CONTROLLER,
     ROLE_PRINTER,
+    ROLE_PACKER,
+
 }
